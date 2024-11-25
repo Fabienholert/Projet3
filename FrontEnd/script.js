@@ -49,17 +49,22 @@ fetchProjects();
 
 // ajouter les filtres
 
+// Sélection de l'élément contenant les filtres
 const filtresContainer = document.getElementById('filtres');
 
-const filtres = await fetch("http://localhost:5678/api/categories")
+// Fonction pour récupérer les projets via l'API
+async function fetchCategories() {
+    try {
+        const response = await fetch('http://localhost:5678/api/categories'); // Appel à l'API
+        if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données');
+        }
+        const categories = await response.json(); // Conversion en JSON
+    } catch (error) {
+        console.error('Erreur :', error);
+    }
+}
+
+fetchCategories();
 
 
-const boutonCategories = document.querySelector(".btn-categories");
-
-
-boutonCategories.addEventListener("click", function () {
-    const imagesFiltrees = categories.filter(function (categories) {
-        return imagesFiltrees.categories
-    }); 
-   console.log(imagesFiltrees)
-});

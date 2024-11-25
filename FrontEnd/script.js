@@ -52,4 +52,14 @@ fetchProjects();
 const filtresContainer = document.getElementById('filtres');
 
 const filtres = await fetch("http://localhost:5678/api/categories")
-.then(pieces => pieces.json());
+
+
+const boutonCategories = document.querySelector(".btn-categories");
+
+
+boutonCategories.addEventListener("click", function () {
+    const imagesFiltrees = categories.filter(function (categories) {
+        return imagesFiltrees.categories
+    }); 
+   console.log(imagesFiltrees)
+});

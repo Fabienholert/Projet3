@@ -53,6 +53,7 @@ fetchProjects();
 const filtresContainer = document.getElementById('filtre');
 
 // Fonction pour récupérer les projets via l'API
+
 async function fetchCategories() {
     try {
         const response = await fetch('http://localhost:5678/api/categories'); // Appel à l'API
@@ -68,12 +69,11 @@ async function fetchCategories() {
         function renderCategory(categories){
             categories.forEach(categorie => {
             const categorieItem = document.createElement('div');
-            categorieItem.classList.add('categorie-item');
+            categorieItem.classList.add('Categorie-item');
             const button = document.createElement("button");
-            button.textContent= categorie.nameUrl;
+            button.textContent = categorie.name;
             categorieItem.appendChild(button);
-            filtresContainer.appendChild(categorieItem);    
+            filtresContainer.appendChild(categorieItem);   
         })
         }
-
     fetchCategories();

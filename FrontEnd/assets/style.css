@@ -238,3 +238,10 @@ footer nav ul {
 	text-decoration: underline;
 }
 
+#filtre {
+	display: flex;
+	flex-direction: row;
+	width: 30% ;
+	gap: 10px;
+
+}

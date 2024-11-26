@@ -241,7 +241,6 @@ footer nav ul {
 #filtre {
 	display: flex;
 	flex-direction: row;
-	width: 30% ;
 	gap: 10px;
-
+	justify-content: center;
 }

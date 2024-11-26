@@ -72,8 +72,7 @@ async function fetchCategories() {
             const button = document.createElement("button");
             button.textContent= categorie.nameUrl;
             categorieItem.appendChild(button);
-            filtresContainer.appendChild(categorieItem);
-            
+            filtresContainer.appendChild(categorieItem);    
         })
         }
 

@@ -81,9 +81,4 @@ async function fetchCategories() {
 
 
             let newButton = document.createElement('div');
-
-
-    
-
-
-
+            

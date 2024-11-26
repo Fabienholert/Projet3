@@ -54,6 +54,7 @@ const filtresContainer = document.getElementById('filtre');
 
 // Fonction pour récupérer les projets via l'API
 
+
 async function fetchCategories() {
     try {
         const response = await fetch('http://localhost:5678/api/categories'); // Appel à l'API
@@ -77,3 +78,12 @@ async function fetchCategories() {
         })
         }
     fetchCategories();
+
+
+            let newButton = document.createElement('div');
+
+
+    
+
+
+

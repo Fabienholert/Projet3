@@ -50,7 +50,7 @@ fetchProjects();
 // ajouter les filtres
 
 // Sélection de l'élément contenant les filtres
-const filtresContainer = document.getElementById('filtres');
+const filtresContainer = document.getElementById('filtre');
 
 // Fonction pour récupérer les projets via l'API
 async function fetchCategories() {
@@ -60,11 +60,21 @@ async function fetchCategories() {
             throw new Error('Erreur lors de la récupération des données');
         }
         const categories = await response.json(); // Conversion en JSON
+        renderCategory(categories);
     } catch (error) {
         console.error('Erreur :', error);
     }
 }
+        function renderCategory(categories){
+            categories.forEach(categorie => {
+            const categorieItem = document.createElement('div');
+            categorieItem.classList.add('categorie-item');
+            const button = document.createElement("button");
+            button.textContent= categorie.nameUrl;
+            categorieItem.appendChild(button);
+            filtresContainer.appendChild(categorieItem);
+            
+        })
+        }
 
-fetchCategories();
-
-
+    fetchCategories();

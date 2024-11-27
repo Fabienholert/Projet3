@@ -80,5 +80,9 @@ async function fetchCategories() {
     fetchCategories();
 
 
-            let newButton = document.createElement('div');
-            
+            let newButton = "Tous"
+
+            let button = document.createElement("button");
+            button.innerText = newButton;
+            let filter = document.getElementById('filtre');
+            filtre.appendChild(button);

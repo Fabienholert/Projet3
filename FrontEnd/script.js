@@ -90,13 +90,4 @@ async function fetchCategories() {
             filtre.appendChild(button);
 
 
-    // Ajout du listener pour filtrer les pièces non abordables
-const boutonTous = document.querySelector("");
-boutonTous.addEventListener("click", function () {
-   const imagesFiltrees = galleryContainer.filter(function (image) {
-       return image.name;
-   });
-   // Effacement de l'écran et regénération de la page avec les pièces filtrées uniquement
-  document.querySelector(".gallery").innerHTML = "";
-  genererImages(boutonTous);
-});
+// creer les filtres fonctionnels//

@@ -226,7 +226,7 @@ footer nav ul {
 .connexion-main .connecter{
 	border-radius: 60px;
 	background-color: #1D6154 ;
-	text-decoration-color: white;
+	color: white;
 	border:none;
 	width: 179px;
 	height: 36px;
@@ -244,3 +244,16 @@ footer nav ul {
 	gap: 10px;
 	justify-content: center;
 }
+
+#filtre button {
+	align-content: center;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	background-color: transparent;
+	left: 427px;
+	top:812px;
+	height: 37px;
+	padding : 20px;
+	color: #1D6154;
+}
+

@@ -240,6 +240,10 @@ footer nav ul {
 	text-decoration: underline;
 }
 
+.connexion footer{
+	padding-top: 300px;
+}
+
 #filtre {
 	display: flex;
 	flex-direction: row;

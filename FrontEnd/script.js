@@ -91,6 +91,26 @@ async function fetchCategories() {
 
 
 // creer les filtres fonctionnels//
+// recuperation des Api //
+
+            let menuCategorie = fetch('http://localhost:5678/api/categories') // Remplacez par votre URL d'API
+            .then(response => response.json())
+            .then(data => {
+            console.log('Données JSON reçues :', data);
+            })
+            .catch(error => console.error('Erreur lors de l’appel à l’API :', error))
+            console.log(menuCategorie)
+
+            let menuImage = fetch('http://localhost:5678/api/works') // Remplacez par votre URL d'API') // Remplacez par votre URL d'API
+            .then(response => response.json())
+            .then(data => {
+            console.log('Données JSON reçues :', data);
+            })
+            .catch(error => console.error('Erreur lors de l’appel à l’API :', error));
+            console.log(menuImage)
+            
+            
+
 
 
 

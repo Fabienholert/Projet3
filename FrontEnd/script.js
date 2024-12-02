@@ -78,7 +78,7 @@ async function fetchCategories() {
             categories.forEach(categorie => {
             const categorieItem = document.createElement('div');
             categorieItem.classList.add('Categorie-item');
-            button = document.createElement("button");
+            let button = document.createElement("button");
             button.addEventListener("click",worksFilter);
             button.dataset.id= categorie.id;
             button.textContent = categorie.name;
@@ -93,12 +93,11 @@ async function fetchCategories() {
         renderGallery(works, event.target.dataset.id);
     }
 
-// ajout du filtre tous //
-            let newButton = "Tous"
-            let button = document.createElement("button");
-            button.innerText = newButton;
-            let filter = document.getElementById('filtre');
-            filtre.appendChild(button);
-
-           
-          
+    // ajouter d'un nouveau bouton 
+            function buttonTous () {
+            let newButton = document.createElement("button");
+            categorieItem.classList.add('Categorie-item');
+            newButton.textContent = "Tous";
+            newButton.addEventListener("click");
+            newButton.appendChild(categorieItem);
+            }

@@ -3,6 +3,7 @@
 
 // Sélection du conteneur de la galerie
 const galleryContainer = document.getElementById('gallery');
+let works = null;
 
 // Fonction pour récupérer les projets via l'API
 async function fetchProjects() {
@@ -11,16 +12,20 @@ async function fetchProjects() {
         if (!response.ok) {
             throw new Error('Erreur lors de la récupération des données');
         }
-        const projects = await response.json(); // Conversion en JSON
-        renderGallery(projects); // Appeler la fonction pour générer la galerie
+        works = await response.json(); // Conversion en JSON
+        renderGallery(works); // Appeler la fonction pour générer la galerie
     } catch (error) {
         console.error('Erreur :', error);
     }
 }
 
 // Fonction pour générer la galerie
-function renderGallery(projects) {
+function renderGallery(projects,idCategory) {
+    console.log("idCategory " + idCategory)
+    galleryContainer.innerHTML = "";
     projects.forEach(project => {
+        if(!idCategory || (idCategory && project.categoryId == idCategory)) {
+
         // Création d'un conteneur pour chaque projet
         const galleryItem = document.createElement('div');
         galleryItem.classList.add('gallery-item');
@@ -40,8 +45,10 @@ function renderGallery(projects) {
 
         // Ajouter le projet à la galerie
         galleryContainer.appendChild(galleryItem);
-    });
 }
+});
+}
+
 
 // Appeler la fonction pour récupérer les projets au chargement de la page
 fetchProjects();
@@ -71,7 +78,9 @@ async function fetchCategories() {
             categories.forEach(categorie => {
             const categorieItem = document.createElement('div');
             categorieItem.classList.add('Categorie-item');
-            const button = document.createElement("button");
+            button = document.createElement("button");
+            button.addEventListener("click",worksFilter);
+            button.dataset.id= categorie.id;
             button.textContent = categorie.name;
             categorieItem.appendChild(button);
             filtresContainer.appendChild(categorieItem);   
@@ -79,30 +88,17 @@ async function fetchCategories() {
         }
     fetchCategories();
 
+    function worksFilter (event) {
+        console.log("worksFilter " + event.target.dataset.id);
+        renderGallery(works, event.target.dataset.id);
+    }
 
 // ajout du filtre tous //
-
             let newButton = "Tous"
-
             let button = document.createElement("button");
             button.innerText = newButton;
             let filter = document.getElementById('filtre');
             filtre.appendChild(button);
 
-
-// creer les filtres fonctionnels//
-// recuperation des Api //
-
-            let menuCategorie = fetch('http://localhost:5678/api/categories') // Remplacez par votre URL d'API
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            })
-            .catch(error => console.error('Erreur lors de l’appel à l’API :', error))
-
-            let menuImage = fetch('http://localhost:5678/api/works') // Remplacez par votre URL d'API') // Remplacez par votre URL d'API
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            })
-            .catch(error => console.error('Erreur lors de l’appel à l’API :', error));
+           
+          

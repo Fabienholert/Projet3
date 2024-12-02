@@ -96,34 +96,18 @@ async function fetchCategories() {
             let menuCategorie = fetch('http://localhost:5678/api/categories') // Remplacez par votre URL d'API
             .then(response => response.json())
             .then(data => {
-            console.log('Données JSON reçues :', data);
+            console.log(data);
             })
             .catch(error => console.error('Erreur lors de l’appel à l’API :', error))
-            console.log(menuCategorie)
 
             let menuImage = fetch('http://localhost:5678/api/works') // Remplacez par votre URL d'API') // Remplacez par votre URL d'API
             .then(response => response.json())
             .then(data => {
-            console.log('Données JSON reçues :', data);
+            console.log(data);
             })
             .catch(error => console.error('Erreur lors de l’appel à l’API :', error));
-            console.log(menuImage)
-            
-            
 
 
-
-
-// ecran de connexion
-// let form = document.querrySelector(".connexion-main")
-// let baliseEmail = document.getElementById("Email")
-//function verifierChamp(balise) {
-//if(balise.value === "") {
-//  balise.classList.add("error")
-//} else {
-//}
-//} 
-//Form.addEvenListener("connecter", (event) => {
-//    event.preventDefault()
-//  verifierChamp(baliseEmail)
-//})
+            function trierPhotos(){
+        galleryContainer.innerHTML = '';
+            if }

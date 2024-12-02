@@ -270,3 +270,7 @@ footer nav ul {
 	background-color: #1D6154;
 	color : white
 }
+
+.modale #projet{
+	display: flex;
+}

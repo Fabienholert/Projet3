@@ -53,14 +53,12 @@ function renderGallery(projects,idCategory) {
 // Appeler la fonction pour récupérer les projets au chargement de la page
 fetchProjects();
 
-
 // ajouter les filtres
 
 // Sélection de l'élément contenant les filtres
 const filtresContainer = document.getElementById('filtre');
 
 // Fonction pour récupérer les projets via l'API
-
 
 async function fetchCategories() {
     try {
@@ -94,9 +92,10 @@ async function fetchCategories() {
     }
 
     // ajouter d'un nouveau bouton 
-            function buttonTous () {
-            let newButton = document.createElement("button");
-            newButton.textContent = "Tous";
-            newButton.addEventListener("click");
-            newButton.appendChild(categorieItem);
-            }
+    function createButton (){
+        let newButton = document.createElement("button");
+        newButton.textContent = "Tous";
+        newButton.addEventListener("click");
+        newButton.appendChild(categories);
+        return createButton
+};

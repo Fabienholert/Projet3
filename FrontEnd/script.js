@@ -92,10 +92,3 @@ async function fetchCategories() {
     }
 
     // ajouter d'un nouveau bouton 
-    function createButton (){
-        let newButton = document.createElement("button");
-        newButton.textContent = "Tous";
-        newButton.addEventListener("click");
-        newButton.appendChild(categories);
-        return createButton
-};

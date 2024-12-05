@@ -226,7 +226,7 @@ footer nav ul {
 	left: 530px;
 }
 
-.connexion-main .connecter{
+.connexion-main input[type="submit"]{
 	border-radius: 60px;
 	background-color: #1D6154 ;
 	color: white;
@@ -239,6 +239,10 @@ footer nav ul {
 
 .connexion-main .oublie{
 	text-decoration: underline;
+}
+
+.connexion-main h3{
+	padding-bottom:10px;
 }
 
 .connexion-footer{

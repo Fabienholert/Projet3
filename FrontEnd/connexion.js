@@ -1,5 +1,5 @@
 //ecran de connexion
- let form = document.querrySelector('#connexion-main');
+ let form = document.querrySelector('connexion-main');
  let baliseEmail = document.getElementById("Email");
 
  function verifierChamp(balise) {

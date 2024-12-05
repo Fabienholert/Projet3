@@ -85,8 +85,7 @@ async function fetchCategories() {
         }
     fetchCategories();
 
-    function worksFilter (event) {
-        console.log("worksFilter " + event.target.dataset.id);
+    function worksFilter (event) {;
         renderGallery(works, event.target.dataset.id);
     }
 

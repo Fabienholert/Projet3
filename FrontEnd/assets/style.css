@@ -186,6 +186,7 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
+	
 }
 
 #gallery {
@@ -240,9 +241,11 @@ footer nav ul {
 	text-decoration: underline;
 }
 
-.connexion footer{
+.connexion-footer{
 	padding-top: 300px;
+	
 }
+
 
 #filtre {
 	display: flex;

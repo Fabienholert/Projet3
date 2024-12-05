@@ -21,7 +21,6 @@ async function fetchProjects() {
 
 // Fonction pour générer la galerie
 function renderGallery(projects,idCategory) {
-    console.log("idCategory " + idCategory)
     galleryContainer.innerHTML = "";
     projects.forEach(project => {
         if(!idCategory || (idCategory && project.categoryId == idCategory)) {
@@ -92,3 +91,10 @@ async function fetchCategories() {
     }
 
     // ajouter d'un nouveau bouton 
+    let newButton = document.createElement('button');
+    newButton.textContent = "Tous";
+    newButton.dataset.id = ""; 
+    newButton.addEventListener('click', () => {
+        renderGallery(works);
+    });
+    filtresContainer.appendChild(newButton);

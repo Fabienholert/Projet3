@@ -1,20 +1,23 @@
 //ecran de connexion
-let contactForm = document.querySelector('.connexion-main input');
+let contactForm = document.getElementById('logInForm');
+
+async function callLogin (logInBody){
+    console.log("appel à /users/login " + JSON.stringify(logInBody))
+}
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-let fields = document.querySelectorAll ('input')
-fields.forEach((field) =>{resetField});
-let valid = true; 
-fields .forEach((field) =>{
-    if(!validateField(field)){
-        valid = false;
-    }
+let email = document.getElementById('Email');
+let password = document.getElementById('motDePasse');
+let logInBody = {
+    "email": email.value,
+    "password": password.value
+  };
+
+  callLogin (logInBody);
+
+
 });
-if(valid){
-    e.target.submit
-}
-}); false;
 
 
 function validateField(field){

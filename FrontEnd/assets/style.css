@@ -278,6 +278,50 @@ footer nav ul {
 	color : white
 }
 
-.modale #projet{
+.modale-main .edition-main #portfolio #projet {
 	display: flex;
+	justify-content: center;
+}
+
+.modale-blackbanner{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: black;
+height: 59px;
+width: 1440px;
+margin-left:-150px;
+padding: 0px;
+}
+
+.modale-blackbanner h2 i {
+	background-color: black;
+	color:white;
+}
+
+.modale-blackbanner h2{
+background-color: black;
+color: white;
+font-size: 16px;
+font-family:'work Sans';
+font-weight: 400;
+}
+
+#modaleprojet {
+	display: flex;
+	gap: 20px;	
+	align-items: baseline;
+	justify-content: center;
+
+}
+
+.overlay {
+	position: fixed;
+	display: none;
+}
+
+.modal {
+	position : fixed;
+	display:none
+
 }

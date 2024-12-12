@@ -25,7 +25,6 @@ let logInBody = {
         const {userId, token } = data;
         window.localStorage.setItem("userId", userId);
         window.localStorage.setItem("token", token);
-
         console.log("Connexion réussie !");
         console.log("userId:", userId, "token:", token);
 
@@ -37,4 +36,8 @@ let logInBody = {
 .catch(error => {
     console.error("Erreur lors de la requête :", error);
 })});
+
+
+// passage a la fenetre de connexion après login
+
 

@@ -46,16 +46,7 @@ let logInBody = {
 .catch(error => {
     console.error("Erreur lors de la requête :", error);
 });
+let logOut = document.getElementById('logIn')
+logIn.innerHTML = "logOut"
 });
 
-
-function switchLogout() {
-    if(token){
-
-        // passage a la fenetre de connexion après login
-         let LogOut = document.getElementById("logIn");
-
-         document.logIn.innerHTML= "";
-         console.log(logOut)
-    }
-}

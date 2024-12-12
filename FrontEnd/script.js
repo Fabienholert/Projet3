@@ -95,3 +95,12 @@ async function fetchCategories() {
         renderGallery(works);
     });
     filtresContainer.appendChild(newButton);
+
+
+
+function switchconnexion (token) {
+    if (token=== 1){
+    let LogOut = document.getElementById(logIn)
+    logIn.innerHTML = "logOut"
+    }
+}

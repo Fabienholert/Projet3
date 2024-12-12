@@ -18,26 +18,44 @@ let logInBody = {
  fetch ("http://localhost:5678/api/users/login", {     
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(logInBody)})
+    body: JSON.stringify(logInBody),
+})
+
     .then(response => {
-    if (response.status === 200) {
-        const data = response.json();
-        const {userId, token } = data;
-        window.localStorage.setItem("userId", userId);
+    if (response.status === 200) { 
+        return response.json();
+        } else {
+            alert("Veuillez saisir un Email et Mot de Passe valide !");
+        }
+    })
+
+        .then(data => {
+            console.log("données recues :", data);
+
+            const {userId, token } = data;
+
         window.localStorage.setItem("token", token);
+        window.localStorage.setItem("userId", userId);
+
         console.log("Connexion réussie !");
-        console.log("userId:", userId, "token:", token);
+        console.log("token:", token, "userId:", userId);
 
         window.location.href="/FrontEnd/index.html";
-    } else {
-        alert("Veuillez saisir un Email et Mot de Passe valide !") ;
-    }
-})
+    })
+    
 .catch(error => {
     console.error("Erreur lors de la requête :", error);
-})});
+});
+});
 
 
-// passage a la fenetre de connexion après login
+function switchLogout() {
+    if(token){
 
+        // passage a la fenetre de connexion après login
+         let LogOut = document.getElementById("logIn");
 
+         document.logIn.innerHTML= "";
+         console.log(logOut)
+    }
+}

@@ -1,6 +1,4 @@
 // ajouter une gallerie photo 
-
-
 // Sélection du conteneur de la galerie
 const galleryContainer = document.getElementById('gallery');
 let works = null;

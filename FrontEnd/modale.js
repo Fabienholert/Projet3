@@ -51,3 +51,14 @@ function renderGallery(projects,idCategory) {
 
 // Appeler la fonction pour récupérer les projets au chargement de la page
 fetchProjects();
+
+
+const modalContainer = document.querySelector(".modal-container");
+const modalTriggers = document.querySelectorAll(".modal-trigger");
+
+modalTriggers.forEach(trigger => trigger.addEventListener ("click", toggleModal) );
+
+function toggleModal(){
+    modalContainer.classList.toogle("active")
+}
+

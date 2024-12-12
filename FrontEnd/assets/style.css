@@ -284,3 +284,36 @@ footer nav ul {
 	background-color: #1D6154;
 	color : white
 }
+
+/* page modale*/
+
+.overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: #333333D3;
+}
+
+.modal-container {
+	display:none ;
+	position: fixed;
+	top:0;
+	width: 100vw;
+	height: 100vh;
+}
+.modal-container.active{
+	display: block;
+}
+
+.modal {
+	width: 95%;
+	max-width: 500px;
+	background: white;
+	position: absolute;
+	top:40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+

@@ -295,7 +295,6 @@ footer nav ul {
 }
 
 .modal-container {
-	display:none ;
 	position: fixed;
 	top:0;
 	width: 100vw;
@@ -321,7 +320,7 @@ footer nav ul {
 	padding-bottom: 100px;
 }
 
-#modale-projet button{
+.modal-croix{
 	text-decoration: none;
 	border:none;
 	background: transparent;
@@ -329,4 +328,38 @@ footer nav ul {
 
 }
 
+.modal-add{
+	display: flex;
+	justify-content: center;
+}
+
+.modal-add button{
+	border: none;
+	background-color: #1D6154;
+	color: white;
+	width: 237px;
+	height: 36px;
+	border-radius:60px;
+}
+
+.modale-blackbanner {
+	display: flex;
+	justify-content: center;
+	background-color: black;
+	height: 59px;
+}
+
+.modale-blackbanner h2{
+	background-color: black;
+	color: white;
+	font-size: medium;
+	display: flex;
+	align-items: center;
+
+}
+
+.modale-blackbanner i {
+	background-color: black;
+	color: white;
+}
 

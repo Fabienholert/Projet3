@@ -295,6 +295,7 @@ footer nav ul {
 }
 
 .modal-container {
+	display: none;
 	position: fixed;
 	top:0;
 	width: 100vw;
@@ -302,6 +303,11 @@ footer nav ul {
 }
 .modal-container.active{
 	display: block;
+}
+
+.modal-modifier{
+	border: none;
+	background: transparent;
 }
 
 .modal {

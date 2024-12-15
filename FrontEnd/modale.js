@@ -53,12 +53,9 @@ function renderGallery(projects,idCategory) {
 fetchProjects();
 
 
-const modalContainer = document.querySelector(".modal-container");
-const modalTriggers = document.querySelectorAll(".modal-trigger");
+let modaleImage = galleryContainer
 
-modalTriggers.forEach(trigger => trigger.addEventListener ("click", toggleModal) );
+ function addModale (){
+};
 
-function toggleModal(){
-    modalContainer.classList.toogle("active")
-}
-
+addModale

@@ -13,7 +13,7 @@ let logInBody = {
     "email": email.value,
     "password": password.value
   };
-  callLogin (logInBody);
+  console.log("appel à /users/login " + JSON.stringify(logInBody));
 
  fetch ("http://localhost:5678/api/users/login", {     
     method: "POST",
@@ -45,8 +45,6 @@ let logInBody = {
     
 .catch(error => {
     console.error("Erreur lors de la requête :", error);
-});
-let logOut = document.getElementById('logIn')
-logIn.innerHTML = "logOut"
+}); 
 });
 

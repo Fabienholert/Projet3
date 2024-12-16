@@ -54,17 +54,10 @@ fetchProjects();
 
 
 // la modale//
-
-const openModal = function (e) {
-    e.preventDefault();
-    const target= document.querySelector(e.target.getAttribute('href'))
-    target.style.display=null;
-    target.removeAttribute('aria-hidden');
-    target.setAttribute('aria-modal', 'true');
-};
-
-
 let modalModifier = document.querySelector(".modal-modifier");
-modalModifier.addEventListener('click', openModal);
+modalModifier.addEventListener('click',function (){
+});
+
+
 
     

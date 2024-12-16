@@ -96,11 +96,19 @@ async function fetchCategories() {
     });
     filtresContainer.appendChild(newButton);
 
+// affichage après connexion
 
 
-function switchconnexion (token) {
-    if (token=== 1){
-    let LogOut = document.getElementById(logIn)
-    logIn.innerHTML = "logOut"
+function isLogIn () {
+    const token = window.localStorage.getItem("token");
+    if (token){
+    let logOut = document.getElementById("logIn");
+    logOut.innerHTML = "logOut";
+    logOut.addEventListener('click', () => {
+    window.localStorage.removeItem("token");
+    window.location.href="/FrontEnd/index.html";
+    })
     }
-}
+};
+isLogIn();
+

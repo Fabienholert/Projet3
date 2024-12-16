@@ -98,7 +98,6 @@ async function fetchCategories() {
 
 // affichage après connexion
 
-
 function isLogIn () {
     const token = window.localStorage.getItem("token");
     if (token){
@@ -111,4 +110,6 @@ function isLogIn () {
     }
 };
 isLogIn();
+
+//verification du token//
 

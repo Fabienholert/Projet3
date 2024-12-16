@@ -53,9 +53,18 @@ function renderGallery(projects,idCategory) {
 fetchProjects();
 
 
-let modaleImage = galleryContainer
+// la modale//
 
- function addModale (){
+const openModal = function (e) {
+    e.preventDefault();
+    const target= document.querySelector(e.target.getAttribute('href'))
+    target.style.display=null;
+    target.removeAttribute('aria-hidden');
+    target.setAttribute('aria-modal', 'true');
 };
 
-addModale
+
+let modalModifier = document.querySelector(".modal-modifier");
+modalModifier.addEventListener('click', openModal);
+
+    

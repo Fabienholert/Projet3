@@ -112,4 +112,3 @@ function isLogIn () {
 isLogIn();
 
 //verification du token//
-

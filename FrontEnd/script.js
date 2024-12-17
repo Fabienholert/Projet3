@@ -152,8 +152,9 @@ function checkToken (iat,exp){
 };
 checkToken;
 
-function modeEdition (){
-    let modeEdition = document.getElementById('modeEdition');
-    modeEdition.createElement('h2')
+function modeModif (){
+    let moEdition = document.querySelector(".modeEdition");
+    modEdition.createElement('h2');
+    moEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
 };
-modeEdition
+modeModif(token);

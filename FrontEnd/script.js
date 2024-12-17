@@ -97,7 +97,7 @@ async function fetchCategories() {
     filtresContainer.appendChild(newButton);
 
 // affichage après connexion
-
+    const token = window.localStorage.getItem("token");
 function isLogIn () {
     const token = window.localStorage.getItem("token");
     if (token){
@@ -112,3 +112,42 @@ function isLogIn () {
 isLogIn();
 
 //verification du token//
+ function getPayloadFromToken (token){
+    if (!token || typeof token !== 'string') {
+        console.error('Token invalide ou non défini');
+        return null;
+    };
+    try {
+        const parts = token.split ('.');
+        if (parts.length !== 3) {
+            throw new error ('Token invalide');
+        }
+    const payload = atob(parts[1]);
+    const payloadObject = JSON.parse(payload);
+    return payloadObject;
+    } catch (error) {
+        console.error('Erreur lors de l’analyse du token :', error);
+        return null;
+    }
+
+ }
+const payload = getPayloadFromToken(token);
+
+if (payload) {}
+else {
+    console.log('Impossible de récupérer les informations du token.');
+};
+
+function checkToken (iat,exp){
+    innerHTML
+    const differenceInSecond = exp - iat;
+    const limitTimeInSecond = 24 * 60 * 60 
+    if (differenceInSecond > limitTimeInSecond){
+        alert('Votre session a expiré veuillez vous reconnecter!');
+        window.localStorage.removeItem("token")
+        window.location.Href= 'connexion.html';
+        return false
+    }
+};
+
+checkToken

@@ -97,9 +97,10 @@ async function fetchCategories() {
     filtresContainer.appendChild(newButton);
 
 // affichage après connexion
+
     const token = window.localStorage.getItem("token");
-function isLogIn () {
-    const token = window.localStorage.getItem("token");
+
+function isLogIn () {;
     if (token){
     let logOut = document.getElementById("logIn");
     logOut.innerHTML = "logOut";
@@ -141,13 +142,18 @@ else {
 function checkToken (iat,exp){
     innerHTML
     const differenceInSecond = exp - iat;
-    const limitTimeInSecond = 24 * 60 * 60 
+    const limitTimeInSecond = 24 * 60 * 60;
     if (differenceInSecond > limitTimeInSecond){
         alert('Votre session a expiré veuillez vous reconnecter!');
-        window.localStorage.removeItem("token")
+        window.localStorage.removeItem("token");
         window.location.Href= 'connexion.html';
         return false
     }
 };
+checkToken;
 
-checkToken
+function modeEdition (){
+    let modeEdition = document.getElementById('modeEdition');
+    modeEdition.createElement('h2')
+};
+modeEdition

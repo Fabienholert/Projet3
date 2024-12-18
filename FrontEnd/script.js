@@ -153,8 +153,8 @@ function checkToken (iat,exp){
 checkToken;
 
 function modeModif (){
-    let moEdition = document.querySelector(".modeEdition");
-    modEdition.createElement('h2');
-    moEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
+    let modEdition = document.querySelector(".modeEdition");
+    modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
 };
+
 modeModif(token);

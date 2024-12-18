@@ -155,6 +155,8 @@ checkToken;
 function modeModif (){
     let modEdition = document.querySelector(".modeEdition");
     modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
+    let filter = document.getElementById("filtre");
+    filter.innerHTML = '<i class="fa-regular fa-pen-to-square"> </i> modifier'
 };
 
 modeModif(token);

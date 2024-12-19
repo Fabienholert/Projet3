@@ -170,3 +170,7 @@ function modeModif (){
 modeModif();
 
 //création de la modale//
+    let buttonModifier = document.querySelector(".motModifier");
+    buttonModifier.addEventListener("click",function() {
+        console.log("j'ai cliqué sur le bouton")
+    });

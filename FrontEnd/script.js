@@ -60,7 +60,7 @@ const filtresContainer = document.getElementById('filtre');
 async function fetchCategories() {
     try {
         const response = await fetch('http://localhost:5678/api/categories'); // Appel à l'API
-        if (!response.ok, !token.ok) {
+        if (!response.ok) {
             throw new Error('Erreur lors de la récupération des données');
         }
         const categories = await response.json(); // Conversion en JSON
@@ -152,25 +152,5 @@ function checkToken (iat,exp){
 };
 checkToken;
 
-function modeModif (){
-    if (token){
-    let modEdition = document.querySelector(".modeEdition");
-    modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
-    let filter = document.getElementById('mesProjets');
-    let iconeModifie = document.createElement("span");
-    let modifierMot = document.createElement("button");
-    iconeModifie.className = "fa-regular fa-pen-to-square" ;  
-    modifierMot.textContent= " modifier";
-    modifierMot.classList.add("motModifier");
-    filter.appendChild(iconeModifie);
-    filter.appendChild(modifierMot);
-    filtresContainer.innerHTML='';
-}};
 
-modeModif();
-
-//création de la modale//
-    let buttonModifier = document.querySelector(".motModifier");
-    buttonModifier.addEventListener("click",function() {
-        console.log("j'ai cliqué sur le bouton")
-    });
+    

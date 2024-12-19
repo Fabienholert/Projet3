@@ -147,10 +147,64 @@ function checkToken (iat,exp){
         alert('Votre session a expiré veuillez vous reconnecter!');
         window.localStorage.removeItem("token");
         window.location.Href= 'connexion.html';
-        return false
+        return false;
     }
 };
 checkToken;
 
+function modeModif (){
+    if (token){
+    let modEdition = document.querySelector(".modeEdition");
+    modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
+    let filter = document.getElementById('mesProjets');
+    let iconeModifie = document.createElement("span");
+    let modifierMot = document.createElement("button");
+    iconeModifie.className = "fa-regular fa-pen-to-square" ;  
+    modifierMot.textContent= " modifier";
+    modifierMot.classList.add("motModifier");
+    filter.appendChild(iconeModifie);
+    filter.appendChild(modifierMot);
+    filtresContainer.innerHTML='';
+    let style = document.createElement("style");
+    style.textContent = `
+    .modeEdition {
+	background-color: black;
+	color: white;
+	font-size: medium;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	width: 1440px;
+	height: 59px;
+	gap: 10px; 
+	margin-bottom: -20px;
+	margin-left: -150px;
+}
 
-    
+
+.modeEdition i {
+	background-color: black;
+	color: white;
+}
+
+#mesProjets button{
+	text-decoration: black;
+	border: none;
+	background: none;
+	size: 14px;
+	line-height: 16.42px;
+	font-weight: 400;
+}
+ 
+#mesProjets .fa-regular {
+	color: black;
+	padding-left: 20px;
+	font: 400;
+	font-size: medium;
+}`;
+document.head.appendChild(style);
+}};
+
+modeModif();
+

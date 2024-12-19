@@ -157,8 +157,6 @@ function modeModif (){
     let modEdition = document.querySelector(".modeEdition");
     modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
     let filter = document.getElementById('filtre');
-    let filterApi = document.querySelectorAll(".Categorie-item");
-    filterApi.forEach(item => item.remove());
     filter.innerHTML = '<i class="fa-regular fa-pen-to-square"> </i> modifier';
 }};
 

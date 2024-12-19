@@ -60,7 +60,7 @@ const filtresContainer = document.getElementById('filtre');
 async function fetchCategories() {
     try {
         const response = await fetch('http://localhost:5678/api/categories'); // Appel à l'API
-        if (!response.ok) {
+        if (!response.ok, !token.ok) {
             throw new Error('Erreur lors de la récupération des données');
         }
         const categories = await response.json(); // Conversion en JSON

@@ -157,9 +157,11 @@ function modeModif (){
     let modEdition = document.querySelector(".modeEdition");
     modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
     let filter = document.getElementById('mesProjets');
-    let nouveauMot = document.createElement("span");
-    nouveauMot.className ="fa-regular fa-pen-to-square";  
+    let iconeModifie = document.createElement("span");
+    let nouveauMot = document.createElement("button");
+    iconeModifie.className ="fa-regular fa-pen-to-square" ;  
     nouveauMot.textContent= " modifier";
+    filter.appendChild(iconeModifie);
     filter.appendChild(nouveauMot);
     filtresContainer.innerHTML='';
 }};

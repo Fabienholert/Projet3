@@ -164,50 +164,6 @@ function modeModif (){
     modifierMot.classList.add("motModifier");
     filter.appendChild(iconeModifie);
     filter.appendChild(modifierMot);
-    let style = document.createElement("style");
-    style.textContent = `
-    .modeEdition {
-	background-color: black;
-	color: white;
-	font-size: medium;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: black;
-	width: 1440px;
-	height: 59px;
-	gap: 10px; 
-	margin-bottom: -20px;
-	margin-left: -150px;
-}
-
-
-.modeEdition i {
-	background-color: black;
-	color: white;
-}
-
-#mesProjets button{
-	text-decoration: black;
-	border: none;
-	background: none;
-	size: 14px;
-	line-height: 16.42px;
-	font-weight: 400;
-}
- 
-#mesProjets .fa-regular {
-	color: black;
-	padding-left: 20px;
-	font: 400;
-	font-size: medium;
-}
-    
-#filtre {
-display: none;
-}`;
-document.head.appendChild(style);
-}};
-
+    }};
 modeModif();
 

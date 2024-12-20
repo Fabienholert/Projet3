@@ -39,7 +39,7 @@ let logInBody = {
 
         console.log("Connexion réussie !");
         console.log("token:", token, "userId:", userId);
-
+        console.log("Classe active ajoutée au body");
         window.location.href="/FrontEnd/index.html";
     })
     

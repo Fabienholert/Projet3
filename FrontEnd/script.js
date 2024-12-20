@@ -210,17 +210,31 @@ function checkToken (iat,exp){
     }};
     modeModif();
 
-    function affichageModale () {
+    function affichageModale (imageUrl) {
     let buttonModifier = document.querySelector(".motModifier");
     buttonModifier.addEventListener("click",function() {
     const createModale = document.createElement("div")
     const buttonCroix = document.createElement("button");
     const modaleGallerie = document.createElement("H2");
     const modaleImage = document.createElement("div");
+    const corbeille = document.createElement("button");
     const creationLigne = document.createElement("hr");
     const modaleAjout = document.createElement("button");
-    createModale.appendChild(modalecontainer)
+    buttonCroix.className = "fa-solid fa-x";
+    corbeille.className = "fa-light fa-trash-can";
+    modaleGallerie.textContent = "Galerie photo";
+    modaleImage.src= imageUrl;
+    modaleAjout.textContent = "Ajouter une photo";
+
+    createModale.appendChild(buttonCroix);
+    createModale.appendChild(modaleGallerie);
+    createModale.appendChild(modaleImage);
+    modaleImage.appendChild(corbeille);
+    createModale.appendChild(creationLigne);
+    createModale.appendChild(modaleAjout);
+
+    const portfolio = document.querySelector("#portfolio");
+    portfolio.appendChild(createModale);
     });
     };
-
-    affichageModale();
+affichageModale();

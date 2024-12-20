@@ -149,21 +149,78 @@ function checkToken (iat,exp){
         window.location.Href= 'connexion.html';
         return false;
     }
-};
-checkToken;
+    };
+    checkToken;
 
-function modeModif (){
-    if (token){
-    let modEdition = document.querySelector(".modeEdition");
-    modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
-    let filter = document.getElementById('mesProjets');
-    let iconeModifie = document.createElement("span");
-    let modifierMot = document.createElement("button");
-    iconeModifie.className = "fa-regular fa-pen-to-square" ;  
-    modifierMot.textContent= " modifier";
-    modifierMot.classList.add("motModifier");
-    filter.appendChild(iconeModifie);
-    filter.appendChild(modifierMot);
+    function modeModif (){
+        if (token){
+        let modEdition = document.querySelector(".modeEdition");
+        modEdition.innerHTML= '<i class="fa-regular fa-pen-to-square"></i> mode édition';
+        let filter = document.getElementById('mesProjets');
+        let iconeModifie = document.createElement("span");
+        let modifierMot = document.createElement("button");
+        iconeModifie.className = "fa-regular fa-pen-to-square" ;  
+        modifierMot.textContent= " modifier";
+        modifierMot.classList.add("motModifier");
+        filter.appendChild(iconeModifie);
+        filter.appendChild(modifierMot);
+        let style = document.createElement("style");
+        style.textContent = `
+        .modeEdition {
+        background-color: black;
+        color: white;
+        font-size: medium;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 1440px;
+        height: 59px;
+        gap: 10px; 
+        margin-bottom: -20px;
+        margin-left: -150px;
+    }
+
+
+    .modeEdition i {
+    background-color: black;
+    color: white;
+    }
+
+    #mesProjets button{
+    text-decoration: black;
+    border: none;
+    background: none;
+    size: 14px;
+    line-height: 16.42px;
+    font-weight: 400;
+    }
+ 
+    #mesProjets .fa-regular {
+    color: black;
+    padding-left: 20px;
+    font: 400;
+    font-size: medium;
+    }
+    
+    #filtre {
+    display: none;
+    }`;
+    document.head.appendChild(style);
     }};
-modeModif();
+    modeModif();
 
+    function affichageModale () {
+    let buttonModifier = document.querySelector(".motModifier");
+    buttonModifier.addEventListener("click",function() {
+    const createModale = document.createElement("div")
+    const buttonCroix = document.createElement("button");
+    const modaleGallerie = document.createElement("H2");
+    const modaleImage = document.createElement("div");
+    const creationLigne = document.createElement("hr");
+    const modaleAjout = document.createElement("button");
+    createModale.appendChild(modalecontainer)
+    });
+    };
+
+    affichageModale();

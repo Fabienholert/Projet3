@@ -164,7 +164,6 @@ function modeModif (){
     modifierMot.classList.add("motModifier");
     filter.appendChild(iconeModifie);
     filter.appendChild(modifierMot);
-    filtresContainer.innerHTML='';
     let style = document.createElement("style");
     style.textContent = `
     .modeEdition {
@@ -202,6 +201,10 @@ function modeModif (){
 	padding-left: 20px;
 	font: 400;
 	font-size: medium;
+}
+    
+#filtre {
+display: none;
 }`;
 document.head.appendChild(style);
 }};

@@ -294,14 +294,14 @@ footer nav ul {
 /* page modale*/
 
 .modale {
-	position: fixed;
+	position: relative;
 	display:flex;
 	align-items: center;
 	justify-content: center;
 	width: 630px;
 	height: 688px;
-	top: 660px;
-	left: 405px;
+	left: 300px;
+	bottom: 1850px;
 	border-radius: 10px;
 	color: #ffffff;
 }

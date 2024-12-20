@@ -210,10 +210,11 @@ function checkToken (iat,exp){
     }};
     modeModif();
 
-    function affichageModale (imageUrl) {
+    function affichageModale () {
     let buttonModifier = document.querySelector(".motModifier");
     buttonModifier.addEventListener("click",function() {
-    const createModale = document.createElement("div")
+    const overlay = document.createElement("div");
+    const createModale = document.createElement("div");
     const buttonCroix = document.createElement("button");
     const modaleGallerie = document.createElement("H2");
     const modaleImage = document.createElement("div");
@@ -226,7 +227,7 @@ function checkToken (iat,exp){
     modaleGallerie.textContent = "Galerie photo";
     modaleImage.src= imageUrl;
     modaleAjout.textContent = "Ajouter une photo";
-
+    afficheBody.appendChild(overlay);
     createModale.appendChild(buttonCroix);
     createModale.appendChild(modaleGallerie);
     createModale.appendChild(modaleImage);

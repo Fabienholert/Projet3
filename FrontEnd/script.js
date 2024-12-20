@@ -220,6 +220,7 @@ function checkToken (iat,exp){
     const corbeille = document.createElement("button");
     const creationLigne = document.createElement("hr");
     const modaleAjout = document.createElement("button");
+    createModale.classList = "modale";
     buttonCroix.className = "fa-solid fa-x";
     corbeille.className = "fa-light fa-trash-can";
     modaleGallerie.textContent = "Galerie photo";

@@ -216,6 +216,7 @@ function checkToken (iat,exp){
             // Création des éléments de la modale
             const overlay = document.createElement("div");
             const createModale = document.createElement("div");
+            const modaleHeader = document.createElement("div");
             const buttonCroix = document.createElement("button");
             const modaleGallerie = document.createElement("h2");
             const modaleContent = document.createElement("div");
@@ -224,6 +225,7 @@ function checkToken (iat,exp){
     
             // Ajout des classes et contenus
             overlay.classList.add("overlay");
+            modaleHeader.classList.add("modale-header")
             createModale.classList.add("modale");
             buttonCroix.className = "fa-solid fa-x";
             modaleGallerie.textContent = "Galerie photo";
@@ -237,14 +239,12 @@ function checkToken (iat,exp){
     
                 const img = document.createElement("img");
                 img.src = work.imageUrl;
-                img.alt = work.title;
                 img.classList.add("modale-img");
     
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "fa-light fa-trash-can";
                 deleteButton.addEventListener("click", () => {
                     // Fonctionnalité de suppression
-                    deleteImage(work.id);
                 });
     
                 modaleItem.appendChild(img);

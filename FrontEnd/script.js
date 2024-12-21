@@ -258,7 +258,6 @@ function checkToken (iat,exp){
             createModale.appendChild(modaleContent);
             createModale.appendChild(creationLigne);
             createModale.appendChild(modaleAjout);
-    
             document.body.appendChild(overlay);
             document.body.appendChild(createModale);
     

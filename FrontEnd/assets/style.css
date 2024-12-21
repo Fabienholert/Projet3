@@ -301,9 +301,22 @@ footer nav ul {
 	width: 630px;
 	height: 688px;
 	left: 300px;
-	bottom: 1850px;
+	bottom: 2850px;
 	border-radius: 10px;
 	color: #ffffff;
+}
+
+.modale-content{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.modale-item img{
+	display: grid;
+	flex-direction: row;
+	width: 78.63px;
+	height: 139.87px;
 }
 
 /* page index après connexion */

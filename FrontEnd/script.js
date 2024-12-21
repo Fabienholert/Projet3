@@ -210,33 +210,64 @@ function checkToken (iat,exp){
     }};
     modeModif();
 
-    function affichageModale () {
-    let buttonModifier = document.querySelector(".motModifier");
-    buttonModifier.addEventListener("click",function() {
-    const overlay = document.createElement("div");
-    const createModale = document.createElement("div");
-    const buttonCroix = document.createElement("button");
-    const modaleGallerie = document.createElement("H2");
-    const modaleImage = document.createElement("div");
-    const corbeille = document.createElement("button");
-    const creationLigne = document.createElement("hr");
-    const modaleAjout = document.createElement("button");
-    createModale.classList = "modale";
-    buttonCroix.className = "fa-solid fa-x";
-    corbeille.className = "fa-light fa-trash-can";
-    modaleGallerie.textContent = "Galerie photo";
-    modaleImage.src= imageUrl;
-    modaleAjout.textContent = "Ajouter une photo";
-    afficheBody.appendChild(overlay);
-    createModale.appendChild(buttonCroix);
-    createModale.appendChild(modaleGallerie);
-    createModale.appendChild(modaleImage);
-    modaleImage.appendChild(corbeille);
-    createModale.appendChild(creationLigne);
-    createModale.appendChild(modaleAjout);
+    function affichageModale() {
+        const buttonModifier = document.querySelector(".motModifier");
+        buttonModifier.addEventListener("click", function () {
+            // Création des éléments de la modale
+            const overlay = document.createElement("div");
+            const createModale = document.createElement("div");
+            const buttonCroix = document.createElement("button");
+            const modaleGallerie = document.createElement("h2");
+            const modaleContent = document.createElement("div");
+            const creationLigne = document.createElement("hr");
+            const modaleAjout = document.createElement("button");
+    
+            // Ajout des classes et contenus
+            overlay.classList.add("overlay");
+            createModale.classList.add("modale");
+            buttonCroix.className = "fa-solid fa-x";
+            modaleGallerie.textContent = "Galerie photo";
+            modaleContent.classList.add("modale-content");
+            modaleAjout.textContent = "Ajouter une photo";
+    
+            // Ajout des images dans la modale
+            works.forEach((work) => {
+                const modaleItem = document.createElement("div");
+                modaleItem.classList.add("modale-item");
+    
+                const img = document.createElement("img");
+                img.src = work.imageUrl;
+                img.alt = work.title;
+                img.classList.add("modale-img");
+    
+                const deleteButton = document.createElement("button");
+                deleteButton.className = "fa-light fa-trash-can";
+                deleteButton.addEventListener("click", () => {
+                    // Fonctionnalité de suppression
+                    deleteImage(work.id);
+                });
+    
+                modaleItem.appendChild(img);
+                modaleItem.appendChild(deleteButton);
+                modaleContent.appendChild(modaleItem);
+            });
+    
+            // Construction de la modale
+            createModale.appendChild(buttonCroix);
+            createModale.appendChild(modaleGallerie);
+            createModale.appendChild(modaleContent);
+            createModale.appendChild(creationLigne);
+            createModale.appendChild(modaleAjout);
+    
+            document.body.appendChild(overlay);
+            document.body.appendChild(createModale);
+    
+            // Gestion de la fermeture de la modale
+            buttonCroix.addEventListener("click", () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(createModale);
+            });
+        });
+    }
 
-    const portfolio = document.querySelector("#portfolio");
-    portfolio.appendChild(createModale);
-    });
-    };
-affichageModale();
+    affichageModale();

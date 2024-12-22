@@ -222,7 +222,7 @@ function checkToken (iat,exp){
             const buttonCroix = document.createElement("button");
             const modaleGallerie = document.createElement("h2");
             const modaleContent = document.createElement("div");
-            const creationLigne = document.createElement("hr");
+            const modaleLigne = document.createElement("hr");
             const modaleAjout = document.createElement("button");
     
             // Ajout des classes et contenus
@@ -263,7 +263,7 @@ function checkToken (iat,exp){
             createModale.appendChild(modaleFooter);
             modaleHeader.appendChild(modaleGallerie);
             modaleMain.appendChild(modaleContent);
-            modaleFooter.appendChild(creationLigne);
+            modaleFooter.appendChild(modaleLigne);
             modaleFooter.appendChild(modaleAjout);
             document.body.appendChild(overlay);
             document.body.appendChild(createModale);

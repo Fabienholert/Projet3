@@ -248,7 +248,11 @@ function checkToken (iat,exp){
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "fa-light fa-trash-can";
                 deleteButton.addEventListener("click", () => {
-                    // Fonctionnalité de suppression
+                fetch ("http://localhost:5678/works", {     
+                        method: "DELETE",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(id),
+                    })
                 });
     
                 modaleItem.appendChild(img);

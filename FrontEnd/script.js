@@ -247,11 +247,10 @@ function checkToken (iat,exp){
     
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "fa-light fa-trash-can";
-                deleteButton.addEventListener("click", () => {
-                fetch ("http://localhost:5678/works", {     
+                deleteButton.addEventListener("click", (token) => {
+                fetch ("http://localhost:5678/works.id", {     
                         method: "DELETE",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(id),
+                        headers: { "Content-Type": "application/json" }
                     })
                 });
     

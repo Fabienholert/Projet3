@@ -321,6 +321,7 @@ footer nav ul {
 	border:none;
 	background: transparent;
 	left: 500px;
+	cursor: pointer;
 }
 
 .modale-header h2{

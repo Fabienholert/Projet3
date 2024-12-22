@@ -296,8 +296,8 @@ footer nav ul {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 1440px;
+    height: 3326px;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 999;
 }
@@ -310,20 +310,35 @@ footer nav ul {
     transform: translate(-50%, -50%);
     background: #fff;
     padding: 20px;
-    width: 80%;
-    max-width: 600px;
+    width: 433px;
+	height:488px;
     z-index: 1000;
     border-radius: 10px;
 }
 
-.modale-header button {
+.modale button.fa-solid.fa-x{
+	position: relative;
 	border:none;
+	background: transparent;
+	left: 400px
 }
+
+.modale-header h2{
+	font-size: 26px;
+	font-weight: 400;
+	color:black;
+	display: flex;
+	justify-content: center;
+	padding-bottom:30px;
+}
+
 
 .modale-content {
     display: flex;
+	justify-content:flex-start;
     flex-wrap: wrap;
     gap: 10px;
+	padding: 1px;
 }
 
 .modale-item {

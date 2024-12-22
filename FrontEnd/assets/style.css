@@ -324,6 +324,14 @@ footer nav ul {
 	cursor: pointer;
 }
 
+.modale button.fa-solid.fa-arrow-left{
+	position: relative;
+	border: none;
+	background: transparent;
+	bottom: 573px;
+	cursor: pointer;
+}
+
 .modale-header h2{
 	font-size: 26px;
 	font-weight:light;
@@ -417,6 +425,7 @@ footer nav ul {
 	background: #b9c5cc;
 	margin-bottom: 5px;
 	color:#306685;
+	cursor: pointer;
 }
 
 .encadreAjoutImage h4{

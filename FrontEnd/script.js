@@ -308,6 +308,7 @@ function checkToken (iat,exp){
             modaleContent.innerHTML="";
             modaleAjout.innerHTML="valider";
             
+            const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
             const buttonPlusAjout = document.createElement("button");
@@ -317,6 +318,7 @@ function checkToken (iat,exp){
             const modaleCategoriePage = document.createElement("h3");
             const inputCategorie = document.createElement("select");
             
+            iconeBack.className="fa-solid fa-arrow-left"
             modaleRectangle.classList.add("encadreAjoutImage");
             iconePhoto.className="fa-regular fa-image";
             buttonPlusAjout.textContent = " + Ajouter photo ";
@@ -325,7 +327,8 @@ function checkToken (iat,exp){
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
-
+            
+            createModale.appendChild(iconeBack);
             modaleMain.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(buttonPlusAjout);
@@ -336,9 +339,19 @@ function checkToken (iat,exp){
             modaleMain.appendChild(inputCategorie);
 
             //categorie//
-           
+            buttonPlusAjout.addEventListener ("click", function() {
+                window.location.href="http://localhost:5678/api/works/";
+        
+            
 
-            })})};            
+            }
+
+        )
+            }
+        )})
+           }
+
+        ;            
         
 
     affichageModale();

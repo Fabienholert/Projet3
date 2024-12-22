@@ -217,6 +217,8 @@ function checkToken (iat,exp){
             const overlay = document.createElement("div");
             const createModale = document.createElement("div");
             const modaleHeader = document.createElement("div");
+            const modaleMain = document.createElement("div");
+            const modaleFooter=document.createElement("div");
             const buttonCroix = document.createElement("button");
             const modaleGallerie = document.createElement("h2");
             const modaleContent = document.createElement("div");
@@ -225,7 +227,9 @@ function checkToken (iat,exp){
     
             // Ajout des classes et contenus
             overlay.classList.add("overlay");
-            modaleHeader.classList.add("modale-header")
+            modaleHeader.classList.add("modale-header");
+            modaleMain.classList.add("modale-main");
+            modaleFooter.classList.add("modale-footer")
             createModale.classList.add("modale");
             buttonCroix.className = "fa-solid fa-x";
             modaleGallerie.textContent = "Galerie photo";
@@ -236,7 +240,7 @@ function checkToken (iat,exp){
             works.forEach((work) => {
                 const modaleItem = document.createElement("div");
                 modaleItem.classList.add("modale-item");
-    
+                
                 const img = document.createElement("img");
                 img.src = work.imageUrl;
                 img.classList.add("modale-img");
@@ -254,10 +258,13 @@ function checkToken (iat,exp){
     
             // Construction de la modale
             createModale.appendChild(buttonCroix);
-            createModale.appendChild(modaleGallerie);
-            createModale.appendChild(modaleContent);
-            createModale.appendChild(creationLigne);
-            createModale.appendChild(modaleAjout);
+            createModale.appendChild(modaleHeader);
+            createModale.appendChild(modaleMain);
+            createModale.appendChild(modaleFooter);
+            modaleHeader.appendChild(modaleGallerie);
+            modaleMain.appendChild(modaleContent);
+            modaleFooter.appendChild(creationLigne);
+            modaleFooter.appendChild(modaleAjout);
             document.body.appendChild(overlay);
             document.body.appendChild(createModale);
     

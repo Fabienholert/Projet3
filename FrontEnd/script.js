@@ -334,8 +334,6 @@ function checkToken (iat,exp){
             modaleMain.appendChild(inputTitre);
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
-        
-
             } )
         });
     }

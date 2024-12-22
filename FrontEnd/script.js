@@ -311,12 +311,11 @@ function checkToken (iat,exp){
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
             const buttonPlusAjout = document.createElement("button");
-            const textJpg = document.createElement("div");
+            const textJpg = document.createElement("h4");
             const modaleTitrePage=document.createElement("h3");
             const inputTitre = document.createElement("input");
             const modaleCategoriePage = document.createElement("h3");
-            const inputCategorie = document.createElement("input");
-            const iconeInput = document.createElement("div");
+            const inputCategorie = document.createElement("select");
             
             modaleRectangle.classList.add("encadreAjoutImage");
             iconePhoto.className="fa-regular fa-image";
@@ -326,7 +325,6 @@ function checkToken (iat,exp){
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
-            iconeInput.className="fa-solid fa-chevron-up";
 
             modaleMain.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
@@ -336,7 +334,7 @@ function checkToken (iat,exp){
             modaleMain.appendChild(inputTitre);
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
-            inputCategorie.appendChild(iconeInput);
+        
 
             } )
         });

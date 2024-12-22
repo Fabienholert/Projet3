@@ -388,3 +388,63 @@ footer nav ul {
 	width: 200px;
 	font-family: Syne;
 }
+
+.encadreAjoutImage{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 420px ;
+	height: 169px ;
+	background: #e8f1f6;
+	margin-left: 50px;
+}
+
+.encadreAjoutImage .fa-regular.fa-image{
+	display:flex;
+	justify-content: center;
+	background: #e8f1f6;
+	color : #b9c5cc;
+	font-size: 68px;
+	margin-bottom: 20px;
+}
+
+.encadreAjoutImage button{
+	margin-left:120px;
+	border:none;
+	width: 170px;
+	border-radius:50px;
+	padding: 10px;
+	background: #b9c5cc;
+	margin-bottom: 5px;
+	color:#306685;
+}
+
+.encadreAjoutImage h4{
+	display:flex;
+	justify-content: center;
+	background: transparent;
+}
+
+.modale-main h3{
+	margin-left: 50px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+
+.modale-main input{
+	margin-left: 50px;
+	margin-bottom: 20px;
+	border: none;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
+	height: 50px;
+	width: 420px;
+}
+
+select{
+	margin-left: 50px;
+	height: 50px;
+	width: 420px;
+	background: white;
+	border: none;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
+}

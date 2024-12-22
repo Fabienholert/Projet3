@@ -247,13 +247,39 @@ function checkToken (iat,exp){
     
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "fa-light fa-trash-can";
-                deleteButton.addEventListener("click", (token) => {
-                fetch ("http://localhost:5678/works.id", {     
+                deleteButton.addEventListener("click", () => {
+                    if (!work.id) {
+                        console.error('Erreur : ID non défini pour le projet', work);
+                        return;
+                    }
+                
+                    const deleteUrl = `http://localhost:5678/api/works/${work.id}`;
+                    const token = window.localStorage.getItem("token"); // Récupérez le token
+                
+                    if (!token) {
+                        alert('Vous devez être connecté pour effectuer cette action.');
+                        return;
+                    }
+                
+                    fetch(deleteUrl, { 
                         method: "DELETE",
-                        headers: { "Content-Type": "application/json" }
+                        headers: { 
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}` // Ajoutez le token ici
+                        },
                     })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`Erreur lors de la suppression : ${response.status}`);
+                        }
+                        console.log(`Projet avec ID ${work.id} supprimé`);
+                        modaleItem.remove(); // Supprime l'élément du DOM
+                    })
+                    .catch((error) => {
+                        console.error('Erreur lors de la suppression :', error);
+                    });
                 });
-    
+                
                 modaleItem.appendChild(img);
                 modaleItem.appendChild(deleteButton);
                 modaleContent.appendChild(modaleItem);

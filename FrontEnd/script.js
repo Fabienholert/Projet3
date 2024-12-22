@@ -302,10 +302,49 @@ function checkToken (iat,exp){
                 document.body.removeChild(overlay);
                 document.body.removeChild(createModale);
             });
+
+            modaleAjout.addEventListener("click",function (){
+            modaleGallerie.innerHTML="Ajout Photo";
+            modaleContent.innerHTML="";
+            modaleAjout.innerHTML="valider";
+            
+            const modaleRectangle = document.createElement("div");
+            const iconePhoto = document.createElement("div");
+            const buttonPlusAjout = document.createElement("button");
+            const textJpg = document.createElement("div");
+            const modaleTitrePage=document.createElement("h3");
+            const inputTitre = document.createElement("input");
+            const modaleCategoriePage = document.createElement("h3");
+            const inputCategorie = document.createElement("input");
+            const iconeInput = document.createElement("div");
+            
+            modaleRectangle.classList.add("encadreAjoutImage");
+            iconePhoto.className="fa-regular fa-image";
+            buttonPlusAjout.textContent = " + Ajouter photo ";
+            textJpg.textContent=" jpg, png: 4mo max ";
+            modaleTitrePage.textContent="Titre";
+            inputTitre.classList.add("inputTitre");
+            modaleCategoriePage.textContent="Catégorie";
+            inputCategorie.classList.add("inputCategorie");
+            iconeInput.className="fa-solid fa-chevron-up";
+
+            modaleMain.appendChild(modaleRectangle);
+            modaleRectangle.appendChild(iconePhoto);
+            modaleRectangle.appendChild(buttonPlusAjout);
+            modaleRectangle.appendChild(textJpg);
+            modaleMain.appendChild(modaleTitrePage);
+            modaleMain.appendChild(inputTitre);
+            modaleMain.appendChild(modaleCategoriePage);
+            modaleMain.appendChild(inputCategorie);
+            inputCategorie.appendChild(iconeInput);
+
+            } )
         });
     }
 
     affichageModale();
+
+
 
 //deleteButton.addEventListener("click", () => {
 //    if (!work.id) {

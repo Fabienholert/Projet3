@@ -207,11 +207,9 @@ function checkToken (iat,exp){
                 deleteButton.className = "fa-light fa-trash-can";
                 deleteButton.type="button";
                 deleteButton.addEventListener("click", function(event){
-                    event.preventDefault();
-                    console.log("Clicked delete button for work:", work);
                     if (!work.id) {
                         console.error('Erreur : ID non défini pour le projet', work);
-                        return false;
+                        return;
                     }
                 
                     const deleteUrl = `http://localhost:5678/api/works/${work.id}`;
@@ -219,7 +217,7 @@ function checkToken (iat,exp){
                 
                     if (!token) {
                         alert('Vous devez être connecté pour effectuer cette action.');
-                        return false;
+                        return;
                     }
                 
                     fetch(deleteUrl, { 
@@ -242,8 +240,6 @@ function checkToken (iat,exp){
                     .catch((error) => {
                         console.error('Erreur lors de la suppression :', error);
                     });
-
-                    return false;
                 });
                 
                 modaleItem.appendChild(img);

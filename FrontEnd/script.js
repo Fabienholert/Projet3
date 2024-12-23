@@ -246,6 +246,7 @@ function checkToken (iat,exp){
                 modaleItem.appendChild(deleteButton);
                 modaleContent.appendChild(modaleItem);
             });
+            
     
             // Construction de la modale
             createModale.appendChild(buttonCroix);

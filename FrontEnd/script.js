@@ -164,50 +164,8 @@ function checkToken (iat,exp){
         modifierMot.classList.add("motModifier");
         filter.appendChild(iconeModifie);
         filter.appendChild(modifierMot);
-        let style = document.createElement("style");
-        style.textContent = `
-        .modeEdition {
-        background-color: black;
-        color: white;
-        font-size: medium;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        width: 1440px;
-        height: 59px;
-        gap: 10px; 
-        margin-bottom: -20px;
-        margin-left: -150px;
-    }
-
-
-    .modeEdition i {
-    background-color: black;
-    color: white;
-    }
-
-    #mesProjets button{
-    text-decoration: black;
-    border: none;
-    background: none;
-    size: 14px;
-    line-height: 16.42px;
-    font-weight: 400;
-    }
- 
-    #mesProjets .fa-regular {
-    color: black;
-    padding-left: 20px;
-    font: 400;
-    font-size: medium;
-    }
-    
-    #filtre {
-    display: none;
-    }`;
-    document.head.appendChild(style);
     }};
+
     modeModif();
 
     function affichageModale() {
@@ -247,7 +205,8 @@ function checkToken (iat,exp){
     
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "fa-light fa-trash-can";
-                deleteButton.addEventListener("click", () => {
+                deleteButton.addEventListener("click", function(event){
+                    event.preventDefault();
                     if (!work.id) {
                         console.error('Erreur : ID non défini pour le projet', work);
                         return;
@@ -273,7 +232,10 @@ function checkToken (iat,exp){
                             throw new Error(`Erreur lors de la suppression : ${response.status}`);
                         }
                         console.log(`Projet avec ID ${work.id} supprimé`);
-                        modaleItem.remove();
+                        alert(`Projet avec ID ${work.id} supprimé`);
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
+                        event.stopPropagation();
                     })
                     .catch((error) => {
                         console.error('Erreur lors de la suppression :', error);
@@ -312,6 +274,11 @@ function checkToken (iat,exp){
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
             const buttonPlusAjout = document.createElement("button");
+            const inputFile = document.createElement("input");
+            inputFile.setAttribute("id", "addFile");
+            inputFile.setAttribute("type", "file");
+            inputFile.setAttribute("name", "file");
+            inputFile.setAttribute("accept", "image/png, image/jpeg");
             const textJpg = document.createElement("h4");
             const modaleTitrePage=document.createElement("h3");
             const inputTitre = document.createElement("input");
@@ -337,10 +304,10 @@ function checkToken (iat,exp){
             modaleMain.appendChild(inputTitre);
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
-
+            modaleRectangle.appendChild(inputFile);
             //categorie//
             buttonPlusAjout.addEventListener ("click", function() {
-            window.location.href="https://stock.adobe.com/fr/search/images?filters%5Bcontent_type%3Aphoto%5D=1&hide_panel=true&k=architecture&search_type=usertyped"
+            inputFile.click();
             }
 
         );

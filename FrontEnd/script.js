@@ -265,7 +265,7 @@ function checkToken (iat,exp){
                         method: "DELETE",
                         headers: { 
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer ${token}` // Ajoutez le token ici
+                            "Authorization": `Bearer ${token}`
                         },
                     })
                     .then((response) => {
@@ -273,7 +273,7 @@ function checkToken (iat,exp){
                             throw new Error(`Erreur lors de la suppression : ${response.status}`);
                         }
                         console.log(`Projet avec ID ${work.id} supprimé`);
-                        modaleItem.remove(); // Supprime l'élément du DOM
+                        modaleItem.remove();
                     })
                     .catch((error) => {
                         console.error('Erreur lors de la suppression :', error);
@@ -340,7 +340,7 @@ function checkToken (iat,exp){
 
             //categorie//
             buttonPlusAjout.addEventListener ("click", function() {
-            window.location.href="file:///macintosh-HD:/Utilisateurs/fabienholert/telechargements/"
+            window.location.href="https://stock.adobe.com/fr/search/images?filters%5Bcontent_type%3Aphoto%5D=1&hide_panel=true&k=architecture&search_type=usertyped"
             }
 
         );

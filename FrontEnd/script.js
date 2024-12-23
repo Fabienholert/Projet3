@@ -209,7 +209,7 @@ function checkToken (iat,exp){
                     event.preventDefault();
                     if (!work.id) {
                         console.error('Erreur : ID non défini pour le projet', work);
-                        return;
+                        return false;
                     }
                 
                     const deleteUrl = `http://localhost:5678/api/works/${work.id}`;

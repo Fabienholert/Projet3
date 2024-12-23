@@ -106,7 +106,7 @@ function isLogIn () {;
     logOut.innerHTML = "logOut";
     logOut.addEventListener('click', () => {
     window.localStorage.removeItem("token");
-    window.location.href="/FrontEnd/index.html";
+    window.location.href="/index.html";
     })
     }
 };

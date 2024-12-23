@@ -340,13 +340,11 @@ function checkToken (iat,exp){
 
             //categorie//
             buttonPlusAjout.addEventListener ("click", function() {
-                window.location.href="http://localhost:5678/api/works/";
-        
-            
-
+            window.location.href="file:///macintosh-HD:/Utilisateurs/fabienholert/telechargements/"
             }
 
-        )
+        );
+        
             }
         )})
            }

@@ -282,12 +282,13 @@ else {
             
             //
             modaleAjout.addEventListener("click",function (){
-            createModale.style.display='none';
-            const createModaleAjout = document.createElement("div")
-            createModaleAjout.classList.add("modale-ajout");
-            const buttonCroixAjout = document.createElement("button");
-            buttonCroixAjout.className = "fa-solid fa-x";
-            const modaleMainAjout =document.createElement("div")
+            modaleGallerie.style.display='none';
+            modaleContent.style.display='none';
+            modaleAjout.style.display='none';
+            const modaleTitreAjout = document.createElement("h2");
+            modaleTitreAjout.textContent= "Ajout photo";
+            const modaleContentAjout = document.createElement("div");
+            const modaleAjoutPhoto= document.createElement("button");
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
@@ -313,19 +314,17 @@ else {
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
             
-            document.body.appendChild(createModaleAjout);
-            createModaleAjout.appendChild(iconeBack);
-            createModale.appendChild(buttonCroixAjout);
-            createModaleAjout.appendChild(modaleRectangle);
+            createModale.appendChild(iconeBack);
+            modaleHeader.appendChild(modaleTitreAjout);
+            modaleMain.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(buttonPlusAjout);
             modaleRectangle.appendChild(textJpg);
-            createModaleAjout.appendChild(modaleTitrePage);
-            createModaleAjout.appendChild(inputTitre);
-            createModaleAjout.appendChild(modaleCategoriePage);
-            createModaleAjout.appendChild(inputCategorie);
-            createModaleAjout.appendChild(inputFile);
-            createModaleAjout.appendChild(buttonCroix);
+            modaleMain.appendChild(modaleTitrePage);
+            modaleMain.appendChild(inputTitre);
+            modaleMain.appendChild(modaleCategoriePage);
+            modaleMain.appendChild(inputCategorie);
+            modaleMain.appendChild(inputFile);
             
 
             buttonPlusAjout.addEventListener ("click", function() {

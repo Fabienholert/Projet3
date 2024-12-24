@@ -365,14 +365,19 @@ display: none;
 	border:none;
 	background: transparent;
 	left: 500px;
+	width: 12px;
+	height: 12px;
 	cursor: pointer;
 }
 
 .modale button.fa-solid.fa-arrow-left{
 	position: relative;
-	border: none;
+	height: 18px;
+	width: 21px;
+	border:none;
 	background: transparent;
-	bottom: 573px;
+	left: 0px;
+	bottom: 528px;
 	cursor: pointer;
 }
 

@@ -303,16 +303,17 @@ else {
             const inputTitre = document.createElement("input");
             const modaleCategoriePage = document.createElement("h3");
             const inputCategorie = document.createElement("select");
+            const modaleValider = document.createElement("button");
             
             iconeBack.className="fa-solid fa-arrow-left"
             modaleRectangle.classList.add("encadreAjoutImage");
             iconePhoto.className="fa-regular fa-image";
             buttonPlusAjout.textContent = " + Ajouter photo ";
             textJpg.textContent=" jpg, png: 4mo max ";
-            modaleTitrePage.textContent="Titre";
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
+            modaleValider.textContent = "Valider";
             
             createModale.appendChild(iconeBack);
             modaleHeader.appendChild(modaleTitreAjout);
@@ -325,19 +326,11 @@ else {
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
             modaleMain.appendChild(inputFile);
-            
-
-            buttonPlusAjout.addEventListener ("click", function() {
-            inputFile.click();
+            modaleFooter.appendChild(modaleValider);
             }
 
-        );
-        
-            }
-        )})
-           }
-
-        ;            
+        );}
+        )};            
         
 
     affichageModale();

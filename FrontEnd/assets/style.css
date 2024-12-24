@@ -372,12 +372,12 @@ display: none;
 
 .modale button.fa-solid.fa-arrow-left{
 	position: relative;
-	height: 18px;
+	height: 20px;
 	width: 21px;
 	border:none;
 	background: transparent;
 	left: 0px;
-	bottom: 528px;
+	bottom: 580px;
 	cursor: pointer;
 }
 

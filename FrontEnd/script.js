@@ -121,36 +121,42 @@ isLogIn();
     try {
         const parts = token.split ('.');
         if (parts.length !== 3) {
-            throw new error ('Token invalide');
+            throw new Error ('Token invalide');
         }
     const payload = atob(parts[1]);
     const payloadObject = JSON.parse(payload);
-    return payloadObject;
-    } catch (error) {
-        console.error('Erreur lors de l’analyse du token :', error);
-        return null;
+    
+    if (payloadObject.iat && payloadObject.exp) {
+        checkToken(payloadObject.iat, payloadObject.exp);
+    } else {
+        console.error('Le payload ne contient pas iat ou exp');
     }
+    
+    return payloadObject;
+} catch (error) {
+    console.error('Erreur lors de l’analyse du token :', error);
+    return null;
+}
+    function checkToken (iat,exp){
+        const currentTime = Math.floor(Date.now() / 1000); // Temps actuel en secondes
+        const differenceInSeconds = exp - currentTime;
 
+        if (differenceInSeconds < 0) {
+            alert('Votre session a expiré, veuillez vous reconnecter!');
+            window.localStorage.removeItem("token");
+            window.location.href = "/index.html";
+            
+        }
+        }
  }
 const payload = getPayloadFromToken(token);
 
-if (payload) {}
+if (payload) {
+    console.log('Payload récupéré :', payload);
+}
 else {
     console.log('Impossible de récupérer les informations du token.');
 };
-
-function checkToken (iat,exp){
-    innerHTML
-    const differenceInSecond = exp - iat;
-    const limitTimeInSecond = 24 * 60 * 60;
-    if (differenceInSecond > limitTimeInSecond){
-        alert('Votre session a expiré veuillez vous reconnecter!');
-        window.localStorage.removeItem("token");
-        window.location.Href= 'connexion.html';
-        return false;
-    }
-    };
-    checkToken;
 
     function modeModif (){
         if (token){

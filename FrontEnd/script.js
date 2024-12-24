@@ -199,7 +199,7 @@ else {
             overlay.classList.add("overlay");
             modaleHeader.classList.add("modale-header");
             modaleMain.classList.add("modale-main");
-            modaleFooter.classList.add("modale-footer")
+            modaleFooter.classList.add("modale-footer");
             createModale.classList.add("modale");
             buttonCroix.className = "fa-solid fa-x";
             modaleGallerie.textContent = "Galerie photo";
@@ -275,11 +275,17 @@ else {
                 document.body.removeChild(createModale);
             });
 
-            modaleAjout.addEventListener("click",function (){
-            modaleGallerie.innerHTML="Ajout Photo";
-            modaleContent.innerHTML="";
-            modaleAjout.innerHTML="valider";
+            overlay.addEventListener("click", () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(createModale);
+            });
             
+            //
+            modaleAjout.addEventListener("click",function (){
+            createModale.style.display='none';
+            const createModaleAjout = document.createElement("div")
+            createModaleAjout.classList.add("modale-ajout");
+            const modaleMainAjout =document.createElement("div")
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
@@ -305,15 +311,16 @@ else {
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
             
-            createModale.appendChild(iconeBack);
-            modaleMain.appendChild(modaleRectangle);
+            document.body.appendChild(createModaleAjout);
+            createModaleAjout.appendChild(iconeBack);
+            modaleMainAjout.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(buttonPlusAjout);
             modaleRectangle.appendChild(textJpg);
-            modaleMain.appendChild(modaleTitrePage);
-            modaleMain.appendChild(inputTitre);
-            modaleMain.appendChild(modaleCategoriePage);
-            modaleMain.appendChild(inputCategorie);
+            modaleMainAjout.appendChild(modaleTitrePage);
+            modaleMainAjout.appendChild(inputTitre);
+            modaleMainAjout.appendChild(modaleCategoriePage);
+            modaleMainAjout.appendChild(inputCategorie);
             modaleRectangle.appendChild(inputFile);
             
 

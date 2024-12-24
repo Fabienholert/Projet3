@@ -285,6 +285,8 @@ else {
             createModale.style.display='none';
             const createModaleAjout = document.createElement("div")
             createModaleAjout.classList.add("modale-ajout");
+            const buttonCroixAjout = document.createElement("button");
+            buttonCroixAjout.className = "fa-solid fa-x";
             const modaleMainAjout =document.createElement("div")
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
@@ -313,15 +315,17 @@ else {
             
             document.body.appendChild(createModaleAjout);
             createModaleAjout.appendChild(iconeBack);
-            modaleMainAjout.appendChild(modaleRectangle);
+            createModale.appendChild(buttonCroixAjout);
+            createModaleAjout.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(buttonPlusAjout);
             modaleRectangle.appendChild(textJpg);
-            modaleMainAjout.appendChild(modaleTitrePage);
-            modaleMainAjout.appendChild(inputTitre);
-            modaleMainAjout.appendChild(modaleCategoriePage);
-            modaleMainAjout.appendChild(inputCategorie);
-            modaleRectangle.appendChild(inputFile);
+            createModaleAjout.appendChild(modaleTitrePage);
+            createModaleAjout.appendChild(inputTitre);
+            createModaleAjout.appendChild(modaleCategoriePage);
+            createModaleAjout.appendChild(inputCategorie);
+            createModaleAjout.appendChild(inputFile);
+            createModaleAjout.appendChild(buttonCroix);
             
 
             buttonPlusAjout.addEventListener ("click", function() {

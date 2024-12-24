@@ -291,6 +291,50 @@ footer nav ul {
 	color : white
 }
 
+/* modeedition*/
+
+.connected{
+	background-color: black;
+	color: white;
+	font-size: medium;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	width: 1440px;
+	height: 59px;
+	gap: 10px; 
+	margin-bottom: -20px;
+	margin-left: -150px;
+}
+
+
+.modeEdition i{
+background-color: black;
+color: white;
+}
+
+#mesProjets button{
+text-decoration: black;
+border: none;
+background: none;
+size: 14px;
+line-height: 16.42px;
+font-weight: 400;
+}
+
+#mesProjets .fa-regular{
+color: black;
+padding-left: 20px;
+font: 400;
+font-size: medium;
+}
+
+#filtre.filtre-container.connected{
+display: none;
+}
+
+
 /* page modale*/
 .overlay {
     position: fixed;
@@ -458,45 +502,16 @@ select{
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
 }
 
-/* modeedition*/
-
-.connected{
-	background-color: black;
-	color: white;
-	font-size: medium;
-	display: flex;
+.modale-ajout{
+    position: fixed;
 	justify-content: center;
-	align-items: center;
-	background-color: black;
-	width: 1440px;
-	height: 59px;
-	gap: 10px; 
-	margin-bottom: -20px;
-	margin-left: -150px;
-}
-
-
-.modeEdition i{
-background-color: black;
-color: white;
-}
-
-#mesProjets button{
-text-decoration: black;
-border: none;
-background: none;
-size: 14px;
-line-height: 16.42px;
-font-weight: 400;
-}
-
-#mesProjets .fa-regular{
-color: black;
-padding-left: 20px;
-font: 400;
-font-size: medium;
-}
-
-#filtre.filtre-container.connected{
-display: none;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    width: 530px;
+	height:588px;
+    z-index: 1000;
+    border-radius: 10px;
 }

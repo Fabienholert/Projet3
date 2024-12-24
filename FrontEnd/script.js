@@ -164,6 +164,12 @@ function checkToken (iat,exp){
         modifierMot.classList.add("motModifier");
         filter.appendChild(iconeModifie);
         filter.appendChild(modifierMot);
+        if (token) {
+            modEdition.classList.add('connected'); // Utilisateur connecté
+            filtresContainer.classList.add('connected');
+        } else {
+            modEdition.classList.add('not-connected'); // Utilisateur non connecté
+        }
     }};
 
     modeModif();
@@ -233,9 +239,6 @@ function checkToken (iat,exp){
                         }
                         console.log(`Projet avec ID ${work.id} supprimé`);
                         alert(`Projet avec ID ${work.id} supprimé`);
-                        event.preventDefault();
-                        event.stopImmediatePropagation();
-                        event.stopPropagation();
                     })
                     .catch((error) => {
                         console.error('Erreur lors de la suppression :', error);
@@ -306,7 +309,8 @@ function checkToken (iat,exp){
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
             modaleRectangle.appendChild(inputFile);
-            //categorie//
+            
+
             buttonPlusAjout.addEventListener ("click", function() {
             inputFile.click();
             }

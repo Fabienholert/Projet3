@@ -309,6 +309,7 @@ else {
             iconePhoto.className="fa-regular fa-image";
             boutonPlusPhoto.textContent = " + Ajouter photo ";
             inputFile.classList.add ("ajoutPhoto");
+            inputFile.innerText=" + Ajouter photo"
             textJpg.textContent=" jpg, png: 4mo max ";
             modaleTitrePage.textContent ="Titre";
             inputTitre.classList.add("inputTitre");
@@ -363,14 +364,34 @@ else {
                 }
             }
             selectionnerCategorie();
-
-            function afficherMiniature (){
-
-
-            };
+                // Ajout du gestionnaire pour le bouton "+ Ajouter photo"
+                boutonPlusPhoto.addEventListener("click", function() {
+                    inputFile.click(); // Simule un clic sur l'input file
+                });
                 
-                })}
-        )};            
+                // Gestion de l'input file pour afficher le fichier sélectionné
+                inputFile.addEventListener("change", function(event) {
+                    const file = event.target.files[0]; // Récupère le fichier sélectionné
+                    if (file) {
+                        const reader = new FileReader();
+                
+                        reader.onload = function(e) {
+                            // Crée un élément img pour afficher l'aperçu
+                            const imgPreview = document.createElement("img");
+                            imgPreview.src = e.target.result; // Définit la source de l'image sur le résultat du FileReader
+                            imgPreview.classList.add("image-preview"); // Ajoutez une classe pour le style si besoin
+                
+                            // Ajoutez l'aperçu dans la modale ou un conteneur approprié
+                            modaleRectangle.innerHTML= "";
+                            modaleRectangle.appendChild(imgPreview);
+                           
+                        };
+                
+                        reader.readAsDataURL(file); // Lit le fichier comme une URL de données
+                    }
+                });
+                
+    })})};            
         
 
     affichageModale();

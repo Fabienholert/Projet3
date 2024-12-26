@@ -528,3 +528,10 @@ select{
 #addFile{
 	display: none;
 }
+
+.image-preview {
+	width: 129px;
+	height: 169px;
+	padding-left: 150px;
+	background: #e8f1f6;
+}

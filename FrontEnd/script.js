@@ -315,6 +315,7 @@ else {
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
+            modaleValider.classList.add("bouton-Valider");
             modaleValider.textContent = "Valider";
             modaleContentAjout.classList.add("modaleContentAjout");
             
@@ -366,67 +367,32 @@ else {
             selectionnerCategorie();
                 // Ajout du gestionnaire pour le bouton "+ Ajouter photo"
                 boutonPlusPhoto.addEventListener("click", function() {
-                    inputFile.click(); // Simule un clic sur l'input file
+                    inputFile.click();
                 });
                 
                 // Gestion de l'input file pour afficher le fichier sélectionné
                 inputFile.addEventListener("change", function(event) {
-                    const file = event.target.files[0]; // Récupère le fichier sélectionné
+                    const file = event.target.files[0];
                     if (file) {
                         const reader = new FileReader();
                 
                         reader.onload = function(e) {
-                            // Crée un élément img pour afficher l'aperçu
                             const imgPreview = document.createElement("img");
-                            imgPreview.src = e.target.result; // Définit la source de l'image sur le résultat du FileReader
-                            imgPreview.classList.add("image-preview"); // Ajoutez une classe pour le style si besoin
-                
-                            // Ajoutez l'aperçu dans la modale ou un conteneur approprié
+                            imgPreview.src = e.target.result; 
+                            imgPreview.classList.add("image-preview");
                             modaleRectangle.innerHTML= "";
                             modaleRectangle.appendChild(imgPreview);
-                           
                         };
-                
-                        reader.readAsDataURL(file); // Lit le fichier comme une URL de données
+                        reader.readAsDataURL(file); 
                     }
+                    console.log(inputFile.setAttribute.value)
                 });
-                
-    })})};            
-        
 
-    affichageModale();
+               
+              modaleValider.addEventListener("click", () => {
+
+        })})})}; 
+
+affichageModale();
 
 
-
-//deleteButton.addEventListener("click", () => {
-//    if (!work.id) {
-//        console.error('Erreur : ID non défini pour le projet', work);
-//        return;
-//    }
-
-//    const deleteUrl = `http://localhost:5678/api/works/${work.id}`;
-//    const token = window.localStorage.getItem("token"); // Récupérez le token
-
-//    if (!token) {
-//        alert('Vous devez être connecté pour effectuer cette action.');
-//        return;
-//    }
-
-//    fetch(deleteUrl, { 
-//        method: "DELETE",
-//        headers: { 
-//            "Content-Type": "application/json",
-//            "Authorization": `Bearer ${token}` // Ajoutez le token ici
-//        },
-//    })
-//    .then((response) => {
-//        if (!response.ok) {
-//            throw new Error(`Erreur lors de la suppression : ${response.status}`);
-//        }
-//        console.log(`Projet avec ID ${work.id} supprimé`);
-//        modaleItem.remove(); // Supprime l'élément du DOM
-//    })
-//    .catch((error) => {
-//        console.error('Erreur lors de la suppression :', error);
-//    });
-//});

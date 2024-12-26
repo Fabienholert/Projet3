@@ -535,3 +535,7 @@ select{
 	padding-left: 150px;
 	background: #e8f1f6;
 }
+
+.bouton-Valider {
+	cursor: pointer;
+}

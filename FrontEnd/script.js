@@ -310,10 +310,12 @@ else {
             iconePhoto.className="fa-regular fa-image";
             buttonPlusAjout.textContent = " + Ajouter photo ";
             textJpg.textContent=" jpg, png: 4mo max ";
+            modaleTitrePage.textContent ="Titre";
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
             modaleValider.textContent = "Valider";
+            inputFile.classList.add ("ajoutPhoto");
             
             createModale.appendChild(iconeBack);
             modaleHeader.appendChild(modaleTitreAjout);
@@ -325,7 +327,7 @@ else {
             modaleMain.appendChild(inputTitre);
             modaleMain.appendChild(modaleCategoriePage);
             modaleMain.appendChild(inputCategorie);
-            modaleMain.appendChild(inputFile);
+            buttonPlusAjout.appendChild(inputFile);
             modaleFooter.appendChild(modaleValider);
             }
 

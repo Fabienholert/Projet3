@@ -520,3 +520,7 @@ select{
     z-index: 1000;
     border-radius: 10px;
 }
+
+.ajoutPhoto{
+	display: none;
+}

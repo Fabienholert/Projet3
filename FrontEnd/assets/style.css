@@ -525,6 +525,6 @@ select{
     border-radius: 10px;
 }
 
-.ajoutPhoto{
+#addFile{
 	display: none;
 }

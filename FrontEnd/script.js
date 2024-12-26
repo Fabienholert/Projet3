@@ -280,7 +280,7 @@ else {
                 document.body.removeChild(createModale);
             });
             
-            //
+            //modale 2eme vue
             modaleAjout.addEventListener("click",function (){
             modaleGallerie.style.display='none';
             modaleContent.style.display='none';
@@ -291,14 +291,14 @@ else {
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
-            const buttonPlusAjout = document.createElement("button");
+            const boutonPlusPhoto = document.createElement("button");
             const inputFile = document.createElement("input");
             inputFile.setAttribute("id", "addFile");
             inputFile.setAttribute("type", "file");
             inputFile.setAttribute("name", "file");
             inputFile.setAttribute("accept", "image/png, image/jpeg");
             const textJpg = document.createElement("h4");
-            const modaleTitrePage=document.createElement("h3");
+            const modaleTitrePage = document.createElement("h3");
             const inputTitre = document.createElement("input");
             const modaleCategoriePage = document.createElement("h3");
             const inputCategorie = document.createElement("select");
@@ -307,27 +307,27 @@ else {
             iconeBack.className="fa-solid fa-arrow-left"
             modaleRectangle.classList.add("encadreAjoutImage");
             iconePhoto.className="fa-regular fa-image";
-            buttonPlusAjout.textContent = " + Ajouter photo ";
+            boutonPlusPhoto.textContent = " + Ajouter photo ";
+            inputFile.classList.add ("ajoutPhoto");
             textJpg.textContent=" jpg, png: 4mo max ";
             modaleTitrePage.textContent ="Titre";
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
             inputCategorie.classList.add("inputCategorie");
             modaleValider.textContent = "Valider";
-            inputFile.classList.add ("ajoutPhoto");
             modaleContentAjout.classList.add("modaleContentAjout");
             
             createModale.appendChild(iconeBack);
             modaleHeader.appendChild(modaleTitreAjout);
             modaleContentAjout.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
-            modaleRectangle.appendChild(buttonPlusAjout);
+            modaleRectangle.appendChild(boutonPlusPhoto);
+            boutonPlusPhoto.appendChild(inputFile);
             modaleRectangle.appendChild(textJpg);
             modaleContentAjout.appendChild(modaleTitrePage);
             modaleContentAjout.appendChild(inputTitre);
             modaleContentAjout.appendChild(modaleCategoriePage);
             modaleContentAjout.appendChild(inputCategorie);
-            buttonPlusAjout.appendChild(inputFile);
             modaleFooter.appendChild(modaleValider);
             modaleMain.appendChild(modaleContentAjout);
 
@@ -345,9 +345,32 @@ else {
                 modaleContent.style.display = 'flex';
                 modaleAjout.style.display = 'flex';
             });
-          
-        ;}
-        )})};            
+
+            // sélection des catégories dans la modale//
+            async function selectionnerCategorie(){
+                try {
+                    const reponse =  await fetch('http://localhost:5678/api/categories');
+                    const data = await reponse.json();
+
+                    data.forEach(option => {;
+                    const opt = document.createElement('option');
+                    opt.value = opt.id; 
+                    opt.textContent = option.name;
+                    inputCategorie.appendChild(opt);
+                    });
+                } catch (error) {
+                    console.error('Erreur lors du chargement des options :', error);
+                }
+            }
+            selectionnerCategorie();
+
+            function afficherMiniature (){
+
+
+            };
+                
+                })}
+        )};            
         
 
     affichageModale();

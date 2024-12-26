@@ -288,7 +288,6 @@ else {
             const modaleTitreAjout = document.createElement("h2");
             modaleTitreAjout.textContent= "Ajout photo";
             const modaleContentAjout = document.createElement("div");
-            const modaleAjoutPhoto= document.createElement("button");
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
@@ -316,23 +315,32 @@ else {
             inputCategorie.classList.add("inputCategorie");
             modaleValider.textContent = "Valider";
             inputFile.classList.add ("ajoutPhoto");
+            modaleContentAjout.classList.add("modaleContentAjout");
             
             createModale.appendChild(iconeBack);
             modaleHeader.appendChild(modaleTitreAjout);
-            modaleMain.appendChild(modaleRectangle);
+            modaleContentAjout.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(buttonPlusAjout);
             modaleRectangle.appendChild(textJpg);
-            modaleMain.appendChild(modaleTitrePage);
-            modaleMain.appendChild(inputTitre);
-            modaleMain.appendChild(modaleCategoriePage);
-            modaleMain.appendChild(inputCategorie);
+            modaleContentAjout.appendChild(modaleTitrePage);
+            modaleContentAjout.appendChild(inputTitre);
+            modaleContentAjout.appendChild(modaleCategoriePage);
+            modaleContentAjout.appendChild(inputCategorie);
             buttonPlusAjout.appendChild(inputFile);
             modaleFooter.appendChild(modaleValider);
-            }
+            modaleMain.appendChild(modaleContentAjout);
 
-        );}
-        )};            
+            iconeBack.addEventListener("click", function() {
+            createModale.innerHTML="";
+            createModale.appendChild(buttonCroix);
+            createModale.appendChild(modaleHeader);
+            createModale.appendChild(modaleMain);
+            createModale.appendChild(modaleFooter);
+            })
+          
+        ;}
+        )})};            
         
 
     affichageModale();

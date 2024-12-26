@@ -332,12 +332,19 @@ else {
             modaleMain.appendChild(modaleContentAjout);
 
             iconeBack.addEventListener("click", function() {
-            createModale.innerHTML="";
-            createModale.appendChild(buttonCroix);
-            createModale.appendChild(modaleHeader);
-            createModale.appendChild(modaleMain);
-            createModale.appendChild(modaleFooter);
-            })
+                this.innerHTML="";
+                // Masquer les éléments du formulaire d'ajout
+                modaleContentAjout.style.display = 'none';
+                modaleValider.style.display = 'none';
+                modaleTitreAjout.style.display = 'none';
+                iconeBack.style.display = 'none';
+
+            
+                // Afficher les éléments de la galerie
+                modaleGallerie.style.display = 'flex';
+                modaleContent.style.display = 'flex';
+                modaleAjout.style.display = 'flex';
+            });
           
         ;}
         )})};            

@@ -539,3 +539,8 @@ select{
 .bouton-Valider {
 	cursor: pointer;
 }
+
+.bouton-Valider:disabled {
+    background-color: #a7a7a7;
+    cursor: not-allowed;
+}

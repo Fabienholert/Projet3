@@ -350,16 +350,21 @@ else {
             });
 
             // sélection des catégories dans la modale//
-            async function selectionnerCategorie(){
+            async function selectionnerCategorie() {
+                const defaultOption = document.createElement('option');
+                defaultOption.value = "";
+                defaultOption.textContent = "Sélectionnez une catégorie"; // Ajoutez un texte d'invite
+                inputCategorie.appendChild(defaultOption);
+                
                 try {
-                    const reponse =  await fetch('http://localhost:5678/api/categories');
-                    const data = await reponse.json();
-
-                    data.forEach(option => {;
-                    const opt = document.createElement('option');
-                    opt.value = opt.id; 
-                    opt.textContent = option.name;
-                    inputCategorie.appendChild(opt);
+                    const response = await fetch('http://localhost:5678/api/categories');
+                    const data = await response.json();
+            
+                    data.forEach(option => {
+                        const opt = document.createElement('option');
+                        opt.value = option.id; // Utilisez option.id ici
+                        opt.textContent = option.name; // Assurez-vous d'utiliser option.name
+                        inputCategorie.appendChild(opt);
                     });
                 } catch (error) {
                     console.error('Erreur lors du chargement des options :', error);
@@ -389,13 +394,82 @@ else {
                     console.log(inputFile.setAttribute.value)
                 });
 
-                function validationButton (inputFile, inputCategorie, modaleValider ){
-                    console.log("tout est ok")
+
+                //changement de  couleur du bouton Valider //
+
+                function changementButton(categorie, fichier, titre, validateButton) {
+                    const isCategorieValid = categorie !== ""; // Vérifie si une catégorie est sélectionnée
+                    const isFichierValid = fichier.files && fichier.files.length > 0; // Vérifie si un fichier est sélectionné
+                    const isTitreValid = titre.trim() !== ""; // Vérifie que le titre n'est pas vide
+                
+                    // Activer ou désactiver le bouton en fonction de la validité des champs
+                    if (!isCategorieValid || !isFichierValid || !isTitreValid) {
+                        validateButton.disabled = true; // Désactiver le bouton
+                    } else {
+                        validateButton.disabled = false; // Activer le bouton
                     }
+                }
+                
+                // Événements pour les éléments d'entrée
+                inputCategorie.addEventListener('change', function() {
+                    changementButton(inputCategorie.value, inputFile, inputTitre.value, modaleValider);
+                });
+                
+                inputFile.addEventListener("change", function() {
+                    changementButton(inputCategorie.value, inputFile, inputTitre.value, modaleValider);
+                });
+                
+                inputTitre.addEventListener("input", function() {
+                    changementButton(inputCategorie.value, inputFile, inputTitre.value, modaleValider);
+                });
+                
+                // Appel initial pour désactiver le bouton au chargement
+                changementButton("", inputFile, "", modaleValider);
 
+                
 
-
-        })})}; 
+                modaleValider.addEventListener("click", async function() {
+                    const titre = inputTitre.value;
+                    const fichier = inputFile.files[0];
+                    const categorieId = inputCategorie.value;
+                
+                    if (!titre || !fichier || !categorieId) {
+                        alert("Veuillez remplir tous les champs.");
+                        return;
+                    }
+                
+                    const formData = new FormData();
+                    formData.append("title", titre);
+                    formData.append("image", fichier);
+                    formData.append("categoryId", categorieId);
+                    formData.append("userId", 1);
+                
+                
+                    try {
+                        const response = await fetch('http://localhost:5678/api/works', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                            },
+                            body: formData,
+                        });
+                
+                        if (!response.ok) {
+                            throw new Error('Erreur lors de l\'ajout : ' + response.statusText);
+                        }
+                
+                        const result = await response.json();
+                        console.log('Ajout réussi :', result);
+                
+                        closeModale();
+                        location.reload();
+                    } catch (error) {
+                        console.error('Erreur :', error);
+                        alert('Une erreur est survenue lors de l\'ajout.');
+                    }
+                });
+                
+            })})};
 
 affichageModale();
 

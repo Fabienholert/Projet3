@@ -298,10 +298,12 @@ else {
             inputFile.setAttribute("name", "file");
             inputFile.setAttribute("accept", "image/png, image/jpeg");
             const textJpg = document.createElement("h4");
+            const formulaireModale = document.createElement("form");
             const modaleTitrePage = document.createElement("h3");
             const inputTitre = document.createElement("input");
             const modaleCategoriePage = document.createElement("h3");
             const inputCategorie = document.createElement("select");
+            const modaleLigneAjout = document.createElement("hr");
             const modaleValider = document.createElement("button");
             
             iconeBack.className="fa-solid fa-arrow-left"
@@ -311,6 +313,7 @@ else {
             inputFile.classList.add ("ajoutPhoto");
             inputFile.innerText=" + Ajouter photo"
             textJpg.textContent=" jpg, png: 4mo max ";
+            formulaireModale.classList.add ("formulaireAjout")
             modaleTitrePage.textContent ="Titre";
             inputTitre.classList.add("inputTitre");
             modaleCategoriePage.textContent="Catégorie";
@@ -327,11 +330,13 @@ else {
             modaleRectangle.appendChild(boutonPlusPhoto);
             boutonPlusPhoto.appendChild(inputFile);
             modaleRectangle.appendChild(textJpg);
-            modaleContentAjout.appendChild(modaleTitrePage);
-            modaleContentAjout.appendChild(inputTitre);
-            modaleContentAjout.appendChild(modaleCategoriePage);
-            modaleContentAjout.appendChild(inputCategorie);
-            modaleFooter.appendChild(modaleValider);
+            modaleContentAjout.appendChild(formulaireModale)
+            formulaireModale.appendChild(modaleTitrePage);
+            formulaireModale.appendChild(inputTitre);
+            formulaireModale.appendChild(modaleCategoriePage);
+            formulaireModale.appendChild(inputCategorie);
+            formulaireModale.appendChild(modaleLigneAjout);
+            formulaireModale.appendChild(modaleValider);
             modaleMain.appendChild(modaleContentAjout);
 
             iconeBack.addEventListener("click", function() {
@@ -341,7 +346,6 @@ else {
                 modaleValider.style.display = 'none';
                 modaleTitreAjout.style.display = 'none';
                 iconeBack.style.display = 'none';
-
             
                 // Afficher les éléments de la galerie
                 modaleGallerie.style.display = 'flex';
@@ -371,6 +375,9 @@ else {
                 }
             }
             selectionnerCategorie();
+
+
+            
                 // Ajout du gestionnaire pour le bouton "+ Ajouter photo"
                 boutonPlusPhoto.addEventListener("click", function() {
                     inputFile.click();
@@ -427,104 +434,31 @@ else {
                 changementButton("", inputFile, "", modaleValider);
 
                 
+                //ajout de photo par la modale //
 
-                modaleValider.addEventListener("click", async function() {
+
+                modaleValider.addEventListener('click', function(event) {
+                    event.preventDefault(); // Empêche le rechargement de la page
+                    console.log('Submit déclenché'); // Vérifiez si cela s'affiche
+                
                     const titre = inputTitre.value;
                     const fichier = inputFile.files[0];
-                    const categorieId = inputCategorie.value;
+                    const selectedCategoryId = inputCategorie.value;
                 
-                    if (!titre || !fichier || !categorieId) {
-                        alert("Veuillez remplir tous les champs.");
+                    console.log('Titre:', titre);
+                    console.log('Fichier:', fichier);
+                    console.log('ID de catégorie:', selectedCategoryId);
+                
+                    if (!titre || !fichier || !selectedCategoryId) {
+                        alert("Veuillez remplir tous les champs correctement.");
                         return;
                     }
                 
-                    const formData = new FormData();
-                    formData.append("title", titre);
-                    formData.append("image", fichier);
-                    formData.append("categoryId", categorieId);
-                    formData.append("userId", 1);
-                
-                
-                    try {
-                        const response = await fetch('http://localhost:5678/api/works', {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': `Bearer ${token}`,
-                            },
-                            body: formData,
-                        });
-                
-                        if (!response.ok) {
-                            throw new Error('Erreur lors de l\'ajout : ' + response.statusText);
-                        }
-                
-                        const result = await response.json();
-                        console.log('Ajout réussi :', result);
-                
-                        closeModale();
-                        location.reload();
-                    } catch (error) {
-                        console.error('Erreur :', error);
-                        alert('Une erreur est survenue lors de l\'ajout.');
-                    }
+                    alert("Tous les champs sont remplis correctement!");
                 });
+
                 
-            })})};
-
+            });})};
 affichageModale();
-
-
-
-
-
-//let contactForm = document.getElementById('logInForm');
-  
-//async function callLogin (logInBody){
-//    console.log("appel à /users/login " + JSON.stringify(logInBody))
-//};
-
-//contactForm.addEventListener('submit', (e) => {
-//    e.preventDefault();
-//let email = document.getElementById('Email');
-//let password = document.getElementById('motDePasse');
-//let logInBody = {
-//    "email": email.value,
-//    "password": password.value
-//  };
-//  console.log("appel à /users/login " + JSON.stringify(logInBody));
-
-// fetch ("http://localhost:5678/api/users/login", {     
-//    method: "POST",
-//    headers: { "Content-Type": "application/json" },
-//    body: JSON.stringify(logInBody),
-//})
-
-//    .then(response => {
-//    if (response.status === 200) { 
-//        return response.json();
-//        } else {
-//            alert("Veuillez saisir un Email et Mot de Passe valide !");
-//        }
-//    })
-
-//        .then(data => {
-//            console.log("données recues :", data);
-
-//            const {userId, token } = data;
-
-//        window.localStorage.setItem("token", token);
-//        window.localStorage.setItem("userId", userId);
-
-//        console.log("Connexion réussie !");
-//        console.log("token:", token, "userId:", userId);
-//        console.log("Classe active ajoutée au body");
-//        window.location.href="index.html";
-//    })
-    
-//.catch(error => {
-//    console.error("Erreur lors de la requête :", error);
-
-//});
-//});
 
 

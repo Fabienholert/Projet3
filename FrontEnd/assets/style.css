@@ -536,11 +536,29 @@ select{
 	background: #e8f1f6;
 }
 
+
+form hr {
+	margin-top: 30px;
+	width: 420px ;
+	color:#b3b3b3;
+}
 .bouton-Valider {
+	color: white;
+	margin-left:175px ;
+	background: #1D6154;
+	border:none;
+	border-radius: 60px;
+	margin-top: 30px;
+	padding:10px;
+	width: 200px;
+	font-family: Syne;
+	display: flex;
+	justify-content: center;
 	cursor: pointer;
 }
 
 .bouton-Valider:disabled {
     background-color: #a7a7a7;
+	color: white;
     cursor: not-allowed;
 }

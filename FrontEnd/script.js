@@ -85,7 +85,7 @@ async function fetchCategories() {
 
     function worksFilter (event) {;
         renderGallery(works, event.target.dataset.id);
-    }
+    };
 
     // ajouter d'un nouveau bouton 
     let newButton = document.createElement('button');
@@ -157,7 +157,7 @@ if (payload) {
 else {
     console.log('Impossible de récupérer les informations du token.');
 };
-
+    //fonction modif
     function modeModif (){
         if (token){
         let modEdition = document.querySelector(".modeEdition");
@@ -179,6 +179,8 @@ else {
     }};
 
     modeModif();
+
+    //affichage de la modale
 
     function affichageModale() {
         const buttonModifier = document.querySelector(".motModifier");
@@ -437,28 +439,73 @@ else {
                 //ajout de photo par la modale //
 
 
-                modaleValider.addEventListener('click', function(event) {
+                modaleValider.addEventListener('click', async function(event) {
                     event.preventDefault(); // Empêche le rechargement de la page
-                    console.log('Submit déclenché'); // Vérifiez si cela s'affiche
                 
-                    const titre = inputTitre.value;
+                    const titre = inputTitre.value.trim();
                     const fichier = inputFile.files[0];
-                    const selectedCategoryId = inputCategorie.value;
+                    const selectedCategoryId = inputCategorie.value.trim();
                 
+                    // Log pour vérifier la valeur récupérée
                     console.log('Titre:', titre);
-                    console.log('Fichier:', fichier);
-                    console.log('ID de catégorie:', selectedCategoryId);
+                    console.log('Fichier:', fichier ? fichier.name : 'Aucun fichier');
+                    console.log('ID de catégorie récupéré :', selectedCategoryId);
                 
+                    // Vérification des champs
                     if (!titre || !fichier || !selectedCategoryId) {
                         alert("Veuillez remplir tous les champs correctement.");
                         return;
                     }
                 
-                    alert("Tous les champs sont remplis correctement!");
-                });
-
+                    // Conversion et vérification de categoryId
+                    const categoryId = parseInt(selectedCategoryId, 10);
+                    console.log('categoryId après conversion :', categoryId);
+                    if (isNaN(categoryId)) {
+                        alert("Veuillez sélectionner une catégorie valide.");
+                        return;
+                    }
                 
-            });})};
+                    const formData = new FormData();
+                    formData.append("title", titre);
+                    formData.append("image", fichier);
+                    formData.append("categoryId", categoryId); // Assurez-vous que c'est un nombre
+                    formData.append("userId", 1); // Ajustez si nécessaire
+                
+                    // Affichez les données envoyées pour débogage
+                    console.log('Données envoyées :', {
+                        title: titre,
+                        image: fichier ? fichier.name : 'Aucun fichier',
+                        categoryId: categoryId,
+                        userId: 1,
+                    });
+                
+                    try {
+                        const response = await fetch('http://localhost:5678/api/works', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                            },
+                            body: formData,
+                        });
+                
+                        if (!response.ok) {
+                            const errorText = await response.text();
+                            console.error('Erreur lors de l\'ajout :', errorText);
+                            alert('Une erreur est survenue : ' + errorText);
+                            return;
+                        }
+                
+                        const result = await response.json();
+                        console.log('Ajout réussi :', result);
+                        alert('Travail ajouté avec succès !');
+                
+                    } catch (error) {
+                        console.error('Erreur de réseau :', error);
+                        alert('Une erreur est survenue lors de l\'envoi des données.');
+                    }
+                });
+            })
+            })};
 affichageModale();
 
 

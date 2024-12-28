@@ -366,19 +366,19 @@ display: none;
 	border:none;
 	background: transparent;
 	left: 500px;
-	width: 12px;
-	height: 12px;
+	font-size: 17px;
+	font-weight: bold;
+	top:7px ;
 	cursor: pointer;
 }
 
 .modale button.fa-solid.fa-arrow-left{
 	position: relative;
-	height: 20px;
-	width: 21px;
+	font-size: 21px;
 	border:none;
 	background: transparent;
 	left: 0px;
-	bottom: 545px;
+	bottom: 560px;
 	cursor: pointer;
 }
 
@@ -389,6 +389,9 @@ display: none;
 	display: flex;
 	justify-content: center;
 	padding-bottom:30px;
+	font-family: work Sans ;
+	font-weight: 400;
+	margin-top: 20px;
 }
 
 
@@ -496,7 +499,7 @@ display: none;
 .modale-main input{
 	margin-left: 50px;
 	margin-top: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 6px;
 	border: none;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
 	height: 50px;
@@ -539,9 +542,10 @@ select{
 
 
 form hr {
-	margin-top: 30px;
-	width: 420px ;
-	color:#b3b3b3;
+    margin-top: 40px;
+    width: 420px;
+    border: none;
+    border-top: 1px solid #b3b3b3;
 }
 .bouton-Valider {
 	color: white;
@@ -562,4 +566,16 @@ form hr {
     background-color: #a7a7a7;
 	color: white;
     cursor: not-allowed;
+}
+
+.inputTitre, .inputCategorie{
+	color: #444444;
+	font-size: 14px;
+	font-family: work Sans;
+}
+
+select.inputCategorie option{
+	appearance: none;
+	display: flex;
+	justify-content: center;
 }

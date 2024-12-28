@@ -287,6 +287,7 @@ else {
             modaleGallerie.style.display='none';
             modaleContent.style.display='none';
             modaleAjout.style.display='none';
+            modaleLigne.style.display='none';
             const modaleTitreAjout = document.createElement("h2");
             modaleTitreAjout.textContent= "Ajout photo";
             const modaleContentAjout = document.createElement("div");
@@ -342,7 +343,7 @@ else {
             modaleMain.appendChild(modaleContentAjout);
 
             iconeBack.addEventListener("click", function() {
-                this.innerHTML="";
+                
                 // Masquer les éléments du formulaire d'ajout
                 modaleContentAjout.style.display = 'none';
                 modaleValider.style.display = 'none';
@@ -350,6 +351,8 @@ else {
                 iconeBack.style.display = 'none';
             
                 // Afficher les éléments de la galerie
+                this.innerHTML="";
+                modaleLigne.style.display ='flex';
                 modaleGallerie.style.display = 'flex';
                 modaleContent.style.display = 'flex';
                 modaleAjout.style.display = 'flex';

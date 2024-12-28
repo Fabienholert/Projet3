@@ -435,77 +435,67 @@ else {
                 // Appel initial pour désactiver le bouton au chargement
                 changementButton("", inputFile, "", modaleValider);
 
+            
+             //ajout de photo par la modale //
                 
-                //ajout de photo par la modale //
 
-
-                modaleValider.addEventListener('click', async function(event) {
-                    event.preventDefault(); // Empêche le rechargement de la page
-                
-                    const titre = inputTitre.value.trim();
-                    const fichier = inputFile.files[0];
-                    const selectedCategoryId = inputCategorie.value.trim();
-                
-                    // Log pour vérifier la valeur récupérée
-                    console.log('Titre:', titre);
-                    console.log('Fichier:', fichier ? fichier.name : 'Aucun fichier');
-                    console.log('ID de catégorie récupéré :', selectedCategoryId);
-                
-                    // Vérification des champs
-                    if (!titre || !fichier || !selectedCategoryId) {
-                        alert("Veuillez remplir tous les champs correctement.");
+             modaleValider.addEventListener('click', async (e) => {
+                e.preventDefault();
+            
+                // Vérifier si tous les champs nécessaires sont remplis
+                const file = inputFile.files[0]; // Le fichier sélectionné
+                const title = inputTitre.value.trim(); // Le titre
+                const category = inputCategorie.value; // La catégorie sélectionnée
+            
+                if (!file || !title || !category) {
+                    alert("Veuillez remplir tous les champs et sélectionner une image.");
+                    return;
+                }
+            
+                // Préparer les données à envoyer
+                const formData = new FormData();
+                formData.append("image", file); // Ajouter le fichier
+                formData.append("title", title); // Ajouter le titre
+                formData.append("category", category); // Ajouter la catégorie
+            
+                try {
+                    const token = window.localStorage.getItem("token"); // Récupérer le token
+                    if (!token) {
+                        alert("Vous devez être connecté pour effectuer cette action.");
                         return;
                     }
-                
-                    // Conversion et vérification de categoryId
-                    const categoryId = parseInt(selectedCategoryId, 10);
-                    console.log('categoryId après conversion :', categoryId);
-                    if (isNaN(categoryId)) {
-                        alert("Veuillez sélectionner une catégorie valide.");
-                        return;
-                    }
-                
-                    const formData = new FormData();
-                    formData.append("title", titre);
-                    formData.append("image", fichier);
-                    formData.append("categoryId", categoryId); // Assurez-vous que c'est un nombre
-                    formData.append("userId", 1); // Ajustez si nécessaire
-                
-                    // Affichez les données envoyées pour débogage
-                    console.log('Données envoyées :', {
-                        title: titre,
-                        image: fichier ? fichier.name : 'Aucun fichier',
-                        categoryId: categoryId,
-                        userId: 1,
+            
+                    // Envoyer les données à l'API
+                    const response = await fetch("http://localhost:5678/api/works", {
+                        method: "POST",
+                        headers: {
+                            "Authorization": `Bearer ${token}`, // Inclure le token
+                        },
+                        body: formData, // Utiliser FormData comme corps de la requête
                     });
-                
-                    try {
-                        const response = await fetch('http://localhost:5678/api/works', {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': `Bearer ${token}`,
-                            },
-                            body: formData,
-                        });
-                
-                        if (!response.ok) {
-                            const errorText = await response.text();
-                            console.error('Erreur lors de l\'ajout :', errorText);
-                            alert('Une erreur est survenue : ' + errorText);
-                            return;
-                        }
-                
-                        const result = await response.json();
-                        console.log('Ajout réussi :', result);
-                        alert('Travail ajouté avec succès !');
-                
-                    } catch (error) {
-                        console.error('Erreur de réseau :', error);
-                        alert('Une erreur est survenue lors de l\'envoi des données.');
+            
+                    if (!response.ok) {
+                        throw new Error(`Erreur : ${response.status} - ${response.statusText}`);
                     }
-                });
-            })
-            })};
-affichageModale();
+            
+                    const result = await response.json(); // Lire la réponse
+                    alert("Photo ajoutée avec succès !");
+                    console.log("Réponse de l'API :", result);
+            
+                    // Mettre à jour la galerie après l'ajout
+                    works.push(result); // Ajouter le nouvel élément à la liste existante
+                    renderGallery(works);
+            
+                    // Fermer la modale après succès
+                    document.body.removeChild(document.querySelector(".overlay"));
+                    document.body.removeChild(document.querySelector(".modale"));
+                } catch (error) {
+                    console.error("Erreur lors de l'ajout de la photo :", error);
+                    alert("Une erreur s'est produite lors de l'ajout de la photo.");
+                }
+            });
+            
+         }) })};
+    affichageModale();
 
 

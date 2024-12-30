@@ -378,13 +378,17 @@ button.fa-solid.fa-x{
 	cursor: pointer;
 }
 
-.modale button.fa-solid.fa-arrow-left{
+
+.modale-contentAjout .fa-solid.fa-x{
+	left: 350px;
+}
+button.fa-solid.fa-arrow-left{
 	position: relative;
 	font-size: 21px;
 	border:none;
 	background: transparent;
-	left: 0px;
-	bottom: 560px;
+	right: 120px;
+	bottom:40px;
 	cursor: pointer;
 }
 
@@ -521,18 +525,22 @@ select{
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09);
 }
 
-.modale-ajout{
-    position: fixed;
+.modale-contentAjout{
+	display: flex;
+	justify-content:center;
+    flex-wrap: wrap;
+}
+
+.modale-contentAjout h2{
+	font-size: 26px;
+	font-weight:light;
+	color:black;
+	font-family: work Sans ;
+	font-weight: 400;
+	display: flex;
 	justify-content: center;
-    top: 50%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    width: 530px;
-	height:588px;
-    z-index: 1000;
-    border-radius: 10px;
+	margin: 40px;
+
 }
 
 #addFile{
@@ -547,12 +555,13 @@ select{
 }
 
 
-form hr {
+.modale-contentAjout hr {
     margin-top: 40px;
     width: 420px;
     border: none;
     border-top: 1px solid #b3b3b3;
 }
+
 .bouton-Valider {
 	color: white;
 	margin-left:175px ;

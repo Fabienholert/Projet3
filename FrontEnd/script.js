@@ -304,7 +304,7 @@ else {
             modaleValider.classList.add("bouton-Valider");
             modaleValider.setAttribute('type', 'submit');
             modaleValider.textContent = "Valider";
-            modaleContentAjout.classList.add("modaleContentAjout");
+            modaleContentAjout.classList.add("modale-contentAjout");
             
             modaleContentAjout.appendChild(iconeBack);
             modaleContentAjout.appendChild(buttonCroixAjout);
@@ -340,7 +340,10 @@ else {
                 document.body.removeChild(createModale);
             });
             
-
+            modaleAjout.addEventListener("click", ()=> {
+                modaleContent.style.display='none';
+                modaleContentAjout.style.display='flex'
+            })
 
             
             

@@ -187,26 +187,22 @@ else {
             // Création des éléments de la modale
             const overlay = document.createElement("div");
             const createModale = document.createElement("div");
-            const modaleHeader = document.createElement("div");
-            const modaleMain = document.createElement("div");
-            const modaleFooter=document.createElement("div");
+            // création des élements de la modale de la première vue
+            const modaleContent = document.createElement("div");
             const buttonCroix = document.createElement("button");
             const modaleGallerie = document.createElement("h2");
-            const modaleContent = document.createElement("div");
+            const vueGallerie = document.createElement("div");
             const modaleLigne = document.createElement("hr");
             const modaleAjout = document.createElement("button");
-    
             // Ajout des classes et contenus
             overlay.classList.add("overlay");
-            modaleHeader.classList.add("modale-header");
-            modaleMain.classList.add("modale-main");
-            modaleFooter.classList.add("modale-footer");
             createModale.classList.add("modale");
             buttonCroix.className = "fa-solid fa-x";
             modaleGallerie.textContent = "Galerie photo";
             modaleContent.classList.add("modale-content");
+            vueGallerie.classList.add("vueGallerieModale");
             modaleAjout.textContent = "Ajouter une photo";
-    
+            modaleAjout.classList.add("buttonVertAjout");
             // visualisation des images dans la modale
             works.forEach((work) => {
                 const modaleItem = document.createElement("div");
@@ -255,47 +251,30 @@ else {
                 
                 modaleItem.appendChild(img);
                 modaleItem.appendChild(deleteButton);
-                modaleContent.appendChild(modaleItem);
+                vueGallerie.appendChild(modaleItem);
             });
             
     
             // Construction de la modale
-            createModale.appendChild(buttonCroix);
-            createModale.appendChild(modaleHeader);
-            createModale.appendChild(modaleMain);
-            createModale.appendChild(modaleFooter);
-            modaleHeader.appendChild(modaleGallerie);
-            modaleMain.appendChild(modaleContent);
-            modaleFooter.appendChild(modaleLigne);
-            modaleFooter.appendChild(modaleAjout);
+            modaleContent.appendChild(buttonCroix);
+            modaleContent.appendChild(modaleGallerie);
+            createModale.appendChild(modaleContent);            
+            modaleContent.appendChild(vueGallerie);
+            modaleContent.appendChild(modaleLigne);
+            modaleContent.appendChild(modaleAjout);
             document.body.appendChild(overlay);
             document.body.appendChild(createModale);
     
-            // Gestion de la fermeture de la modale
-            buttonCroix.addEventListener("click", () => {
-                document.body.removeChild(overlay);
-                document.body.removeChild(createModale);
-            });
-
-            overlay.addEventListener("click", () => {
-                document.body.removeChild(overlay);
-                document.body.removeChild(createModale);
-            });
-            
-            //modale 2eme vue
-            modaleAjout.addEventListener("click",function (){
-            modaleGallerie.style.display='none';
-            modaleContent.style.display='none';
-            modaleAjout.style.display='none';
-            modaleLigne.style.display='none';
+            //créations des éléments de la deuxième vue
+            const modaleContentAjout = document.createElement("div");
             const modaleTitreAjout = document.createElement("h2");
             modaleTitreAjout.textContent= "Ajout photo";
-            const modaleContentAjout = document.createElement("div");
             const iconeBack = document.createElement("button");
             const modaleRectangle = document.createElement("div");
             const iconePhoto = document.createElement("div");
             const boutonPlusPhoto = document.createElement("button");
             const inputFile = document.createElement("input");
+            const buttonCroixAjout = document.createElement("button");
             inputFile.setAttribute("id", "addFile");
             inputFile.setAttribute("type", "file");
             inputFile.setAttribute("name", "file");
@@ -309,7 +288,8 @@ else {
             const modaleLigneAjout = document.createElement("hr");
             const modaleValider = document.createElement("button");
             
-            iconeBack.className="fa-solid fa-arrow-left"
+            buttonCroixAjout.className="fa-solid fa-x";
+            iconeBack.className="fa-solid fa-arrow-left";
             modaleRectangle.classList.add("encadreAjoutImage");
             iconePhoto.className="fa-regular fa-image";
             boutonPlusPhoto.textContent = " + Ajouter photo ";
@@ -326,8 +306,9 @@ else {
             modaleValider.textContent = "Valider";
             modaleContentAjout.classList.add("modaleContentAjout");
             
-            createModale.appendChild(iconeBack);
-            modaleHeader.appendChild(modaleTitreAjout);
+            modaleContentAjout.appendChild(iconeBack);
+            modaleContentAjout.appendChild(buttonCroixAjout);
+            modaleContentAjout.appendChild(modaleTitreAjout);
             modaleContentAjout.appendChild(modaleRectangle);
             modaleRectangle.appendChild(iconePhoto);
             modaleRectangle.appendChild(boutonPlusPhoto);
@@ -340,7 +321,30 @@ else {
             formulaireModale.appendChild(inputCategorie);
             formulaireModale.appendChild(modaleLigneAjout);
             formulaireModale.appendChild(modaleValider);
-            modaleMain.appendChild(modaleContentAjout);
+            createModale.appendChild(modaleContentAjout);
+
+            modaleContentAjout.style.display='none';
+            // Gestion de la fermeture de la modale
+            buttonCroix.addEventListener("click", () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(createModale);
+            });
+
+            buttonCroixAjout.addEventListener("click", ()=> {
+                document.body.removeChild(overlay);
+                document.body.removeChild(createModale);
+            });
+
+            overlay.addEventListener("click", () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(createModale);
+            });
+            
+
+
+            
+            
+            
 
             iconeBack.addEventListener("click", function() {
                 
@@ -484,7 +488,7 @@ else {
                 }
             });
             
-         }) })};
+         }) };
     affichageModale();
 
 

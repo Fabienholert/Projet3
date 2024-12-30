@@ -361,14 +361,20 @@ display: none;
     border-radius: 10px;
 }
 
-.modale button.fa-solid.fa-x{
+.modale-content {
+    display: flex;
+	justify-content:center;
+    flex-wrap: wrap;
+}
+
+button.fa-solid.fa-x{
 	position: relative;
 	border:none;
 	background: transparent;
-	left: 500px;
+	left: 375px;
 	font-size: 17px;
 	font-weight: bold;
-	top:7px ;
+	bottom:40px ;
 	cursor: pointer;
 }
 
@@ -382,27 +388,16 @@ display: none;
 	cursor: pointer;
 }
 
-.modale-header h2{
+.modale-content h2{
 	font-size: 26px;
 	font-weight:light;
 	color:black;
-	display: flex;
-	justify-content: center;
-	padding-bottom:30px;
 	font-family: work Sans ;
 	font-weight: 400;
-	margin-top: 20px;
-}
+	display: flex;
+	justify-content: center;
+	margin: 40px;
 
-
-.modale-content {
-    display: flex;
-	justify-content:flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-	padding: 10px;
-	padding-left: 60px;
-	padding-bottom: 40px;
 }
 
 .modale-item {
@@ -410,10 +405,21 @@ display: none;
 	display: inline-block;
 }
 
+
+.vueGallerieModale{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-left: 55px;
+	gap: 8px;
+}
+
 .modale-img {
     width: 77px;
     height: 103px;
     object-fit: cover;
+	margin-bottom: 15px;
 }
 
 .fa-trash-can {
@@ -430,22 +436,22 @@ display: none;
 	border-radius: 3px;
 }
 
-.modale-footer hr{
+.modale-content hr{
 	margin-top: 20px;
+	margin-bottom: 0px;
 	width: 420px;
 	border: none;
 	border-top: 1px solid #b3b3b3;
 
 }
 
-.modale-footer button{
+.modale-content .buttonVertAjout{
 	color: white;
-	margin-left:175px ;
 	background: #1D6154;
 	border:none;
 	border-radius: 60px;
 	margin-top: 30px;
-	padding:10px;
+	padding: 10px;
 	width: 200px;
 	font-family: Syne;
 	display: flex;
@@ -490,13 +496,13 @@ display: none;
 	background: transparent;
 }
 
-.modale-main h3{
+.modale-content h3{
 	margin-left: 50px;
 	padding-top: 20px;
 	padding-bottom: 5px;
 }
 
-.modale-main input{
+.formulaireAjout input{
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 6px;

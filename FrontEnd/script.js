@@ -152,10 +152,9 @@ isLogIn();
 const payload = getPayloadFromToken(token);
 
 if (payload) {
-    console.log('Payload récupéré :', payload);
+
 }
 else {
-    console.log('Impossible de récupérer les informations du token.');
 };
     //fonction modif
     function modeModif (){
@@ -245,7 +244,8 @@ else {
                         if (!response.ok) {
                             throw new Error(`Erreur lors de la suppression : ${response.status}`);
                         }
-                        console.log(`Projet avec ID ${work.id} supprimé`);
+
+                    
                         alert(`Projet avec ID ${work.id} supprimé`);
                     })
                     .catch((error) => {
@@ -344,18 +344,6 @@ else {
 
             iconeBack.addEventListener("click", function() {
                 
-                // Masquer les éléments du formulaire d'ajout
-                modaleContentAjout.style.display = 'none';
-                modaleValider.style.display = 'none';
-                modaleTitreAjout.style.display = 'none';
-                iconeBack.style.display = 'none';
-            
-                // Afficher les éléments de la galerie
-                this.innerHTML="";
-                modaleLigne.style.display ='flex';
-                modaleGallerie.style.display = 'flex';
-                modaleContent.style.display = 'flex';
-                modaleAjout.style.display = 'flex';
             });
 
             // sélection des catégories dans la modale//
@@ -403,7 +391,6 @@ else {
                         };
                         reader.readAsDataURL(file); 
                     }
-                    console.log(inputFile.setAttribute.value)
                 });
 
 
@@ -483,7 +470,6 @@ else {
             
                     const result = await response.json(); // Lire la réponse
                     alert("Photo ajoutée avec succès !");
-                    console.log("Réponse de l'API :", result);
             
                     // Mettre à jour la galerie après l'ajout
                     works.push(result); // Ajouter le nouvel élément à la liste existante

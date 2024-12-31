@@ -350,7 +350,8 @@ else {
             
 
             iconeBack.addEventListener("click", function() {
-                
+                modaleContent.style.display='flex';
+                modaleContentAjout.style.display='none'
             });
 
             // sélection des catégories dans la modale//

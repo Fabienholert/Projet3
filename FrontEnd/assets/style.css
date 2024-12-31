@@ -380,16 +380,18 @@ button.fa-solid.fa-x{
 
 
 .modale-contentAjout .fa-solid.fa-x{
-	left: 350px;
+	bottom:35px;
+	left: 334px;
 }
 button.fa-solid.fa-arrow-left{
 	position: relative;
 	font-size: 21px;
 	border:none;
 	background: transparent;
-	right: 120px;
-	bottom:40px;
+	right: 130px;
+	bottom:30px;
 	cursor: pointer;
+
 }
 
 .modale-content h2{
@@ -469,7 +471,7 @@ button.fa-solid.fa-arrow-left{
 	width: 420px ;
 	height: 169px ;
 	background: #e8f1f6;
-	margin-left: 50px;
+	margin-left: 0px;
 }
 
 .encadreAjoutImage .fa-regular.fa-image{
@@ -506,8 +508,14 @@ button.fa-solid.fa-arrow-left{
 	padding-bottom: 5px;
 }
 
+.formulaireAjout{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
 .formulaireAjout input{
-	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 6px;
 	border: none;
@@ -517,7 +525,6 @@ button.fa-solid.fa-arrow-left{
 }
 
 select{
-	margin-left: 50px;
 	height: 50px;
 	width: 420px;
 	background: white;
@@ -527,8 +534,9 @@ select{
 
 .modale-contentAjout{
 	display: flex;
-	justify-content:center;
+	align-items:center;
     flex-wrap: wrap;
+	
 }
 
 .modale-contentAjout h2{
@@ -537,10 +545,16 @@ select{
 	color:black;
 	font-family: work Sans ;
 	font-weight: 400;
-	display: flex;
-	justify-content: center;
-	margin: 40px;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	padding-right: 50px;
 
+}
+
+.modale-contentAjout h3{
+	margin: 0px;
+	padding-top: 20px;
+	padding-bottom: 5px;
 }
 
 #addFile{
@@ -556,7 +570,8 @@ select{
 
 
 .modale-contentAjout hr {
-    margin-top: 40px;
+    margin-top: 35px;
+	left:20px;
     width: 420px;
     border: none;
     border-top: 1px solid #b3b3b3;
@@ -564,17 +579,16 @@ select{
 
 .bouton-Valider {
 	color: white;
-	margin-left:175px ;
 	background: #1D6154;
 	border:none;
 	border-radius: 60px;
-	margin-top: 30px;
+	margin-top: 20px;
 	padding:10px;
 	width: 200px;
 	font-family: Syne;
-	display: flex;
-	justify-content: center;
 	cursor: pointer;
+	display: inline-block;
+	margin-left: 112px;
 }
 
 .bouton-Valider:disabled {

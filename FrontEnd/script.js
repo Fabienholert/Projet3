@@ -240,18 +240,54 @@ else {
                         if (!response.ok) {
                             throw new Error(`Erreur lors de la suppression : ${response.status}`);
                         }
-
                     
+                        // Trouver l'index de l'élément à supprimer dans le tableau
+                        const indexToRemove = works.findIndex(workItem => workItem.id === work.id);
+                        if (indexToRemove !== -1) {
+                            works.splice(indexToRemove, 1); // Supprimer l'élément du tableau
+                    
+                            // Supprimer l'élément de la page principale
+                            const workElement = document.querySelector(`[data-id="${work.id}"]`);
+                            if (workElement) {
+                                workElement.remove(); // Retire l'élément du DOM de la galerie principale
+                            }
+                    
+                            // Supprimer l'élément de la modale
+                            const modalElement = document.querySelector(`.modale [data-id="${work.id}"]`);
+                            if (modalElement) {
+                                modalElement.remove(); // Retire l'élément du DOM de la modale
+                            }
+                        } else {
+                            console.warn("L'élément n'a pas été trouvé dans la liste des travaux.");
+                        }
+                    
+                        // Afficher une confirmation
                         alert(`Projet avec ID ${work.id} supprimé`);
+                    
+                        // Supprimer les éléments modaux restants si nécessaire
+                        const overlay = document.querySelector(".overlay");
+                        if (overlay) {
+                            document.body.removeChild(overlay);
+                        }
+                    
+                        const modal = document.querySelector(".modale");
+                        if (modal) {
+                            document.body.removeChild(modal);
+                        }
+                    
+                        // Rafraîchir la galerie si nécessaire
+                        renderGallery(works);
                     })
                     .catch((error) => {
                         console.error('Erreur lors de la suppression :', error);
                     });
+                    
+
                 });
-                
                 modaleItem.appendChild(img);
                 modaleItem.appendChild(deleteButton);
                 vueGallerie.appendChild(modaleItem);
+
             });
             
     

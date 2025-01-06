@@ -183,6 +183,7 @@ else {
 
     function affichageModale() {
         const buttonModifier = document.querySelector(".motModifier");
+        if (buttonModifier){
         buttonModifier.addEventListener("click", function () {
             // Création des éléments de la modale
             const overlay = document.createElement("div");
@@ -528,7 +529,9 @@ else {
                 }
             });
             
-         }) };
+         })
+        } 
+    };
     affichageModale();
 
 
